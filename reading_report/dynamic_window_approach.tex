@@ -1,0 +1,59 @@
+\documentclass[12pt]{article}
+\usepackage{natbib,amsmath,amsfonts,fullpage,hyphenat,booktabs,graphicx,setspace}
+\usepackage[colorlinks,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+%\onehalfspacing{}
+
+\title{Reading report\\ The dynamic window approach to collidance avoidance}
+\author{Dharmin Bakaraniya}
+\begin{document}
+\maketitle{}
+\begin{abstract}
+This approach, designed for mobile robots equipped with synchro-drives,
+is derived directly from the motion dynamics of the robot. In experiments, the dynamic window approach safely controlled the mobile
+robot RHINO at speeds of up to 95cm/sec, in populated and dynamic
+environments.
+\end{abstract}
+\section{Summary}
+\begin{itemize}
+    \item The complexity of the calculation is decreased drastically by just considering the next window of velocity that the robot can have.
+    \item The translational and rotational velocity is chosen by maximising an objective function.
+    \item The objective function includes
+    \begin{itemize}
+        \item distance from goal
+        \item forward velocity
+        \item distance to the next obstacle
+    \end{itemize}
+    \item This makes the robot balance between how fast it want to reach the goal and avoiding obstacle.
+    \item The search space for the robot is done in velocity space.
+    \item Only curve velocities are considered.
+    \item The velocities that is unreachable by the robot under the dynamic contrainsts are not considered.
+    \item The velocity which will result the robot to collide with an obstacle are also pruned.
+    \item The objective function $G(v,w)= \sigma(\alpha \cdot  heading(v,w) +\beta \cdot dist(v,w) + \gamma \cdot vel(v,w))$
+    \begin{itemize}
+            \item $\sigma$ is a smoothing function
+            \item \textit{heading} is progress towards goal
+            \item \textit{dist} is distance to the closest obstacle
+            \item \textit{vel} is current velocity of the robot
+    \end{itemize}
+    \item The size of the window is dependent on the acceleration that the robot can produce without colliding with any obstacles.
+    \item The \textit{heading} is considered from the position that the robot will reach at the end of current interval after executing a particular velocity curve.
+    \item The smoothing function selects the values of $\alpha, \beta$ and $\gamma$ such that the robot experience a collision free trajectory even in cramped environment.
+    \item The authors emphasis that all the three component of the objective function are needed and even if one of this parameter is dropped, the robot will either not got to the goal or collide to an obstacle.
+    \item The current velocity plays an important role. If the current velocity is too high for the robot to make a turn, the robot will fail and will not exhibit optimal behaviour. Thus the velocity is kept at minimum while turning by the objective function itself.
+    \item Acceleration also plays a major role. The space of admissible velocity is reduced because of low acceleration. If acceleration is needed by the robot, the window size is decreased even further.
+    \item Obstacle line field is used for sensor interpretation and erroneous sonar sensor reading are replaced by large values. The authors suggest that if cross talk is a problem then occupancy grid can be used. They have used this method because it is fast.
+    \item The authors found values of 0.8, 0.1 and 0.1 for $\alpha, \beta$ and $\gamma$ respectively, provides good results.
+
+\end{itemize}
+
+\section{Doubts and notes}%
+\label{sec:doubts_and_notes}
+\begin{itemize}
+        \item The role of acceleration in the objective function is not intutively clear to me.
+        \item All other concepts makes a lot of sense.
+        \item This approach seems to be robust for obstacle avoidance in cluttered dynamic environment.
+        \item The use of camera while using this approach seems to be the natural succession from here.
+        \item Authors have only considered synchro drive with a circular body.
+\end{itemize}
+
+\end{document}

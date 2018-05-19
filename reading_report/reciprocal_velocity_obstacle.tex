@@ -1,0 +1,73 @@
+\documentclass[12pt]{article}
+\usepackage{natbib,amsmath,amsfonts,fullpage,hyphenat,booktabs,graphicx,setspace}
+\usepackage[colorlinks,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\setcitestyle{square,super,comma}
+%\onehalfspacing{}
+
+\title{Reading report\\Reciprocal velocity obstacles for real-time multi-agent navigation\cite{van2008reciprocal}}
+\author{Dharmin Bakaraniya}
+\begin{document}
+\maketitle{}
+
+\begin{abstract}
+In this paper, we propose a new concept —
+the “Reciprocal Velocity Obstacle”— for real-time multi-agent
+navigation. We consider the case in which each agent navigates independently without explicit communication with other
+agents. Our formulation is an extension of the Velocity Obstacle
+concept\cite{fiorini1998motion}, which was introduced for navigation among (passively) moving obstacles. Our approach takes into account the
+reactive behavior of the other agents by implicitly assuming that
+the other agents make a similar collision-avoidance reasoning.
+We show that this method guarantees safe and oscillation-free motions for each of the agents. We apply our concept
+to navigation of hundreds of agents in densely populated
+environments containing both static and moving obstacles, and
+we show that real-time and scalable performance is achieved
+in such challenging scenarios.
+\end{abstract}
+
+\section{Summary}
+\begin{itemize}
+    \item The authors explicitly mention that their work is an extension of velocity obstacle approach\cite{fiorini1998motion} where all the advantages are maintained and a new feature to solve oscillation problem in multi agent is solved.
+    \item The authors assume that the position, velocity and shape of other agents are known to each agent.
+    \item The authors show that when two agent executing velocity obstacle approach are on a collision course, they oscillate. Here they suppose 2 agents A and B. They have velocity $v_A$ and $v_B$ respectively such that they will collide in future. Now both of them change their respective velocities to $v_A'$ and $v_B'$ such that they do not collide. Now after few iterations, their original velocities are outside each other's VO as they have moved a little apart. So, naturally they will choose their previous velocity $v_A$ and $v_B$ respectively because that velocity will lead them to their goal faster. After a few iterations, they are again on a collision course. Thus they change their velocity again. This cycle repeats and thus an oscillatory motion is produced by both the agents.
+    \item The idea of \textit{Reciprocal velocity obstacle} is quite simple. The agents do not completely change their velocity to a new value so that they do not collide. Instead, they take an average of their current velocity and the newly calculated collision avoiding velocity. This average velocity will now be the agent's new velocity.
+    \item ``It can geometrically be interpreted as the velocity obstacle $VO_B$ that is translated such that its apex lies at $\frac{v_A + v_B}{2}$''\cite{van2008reciprocal}
+    \item The authors prove that this approach will guarantee that the agents will not collide and their movement will be oscillation free given that they choose to pass each other on the same side.
+    \item The authors guarantee that the agents will choose same side to pass each other if they choose the velocity closest to their current velocity but which is out of the other agent's reciprocal velocity obstacle.
+    \item The new velocity calculated using reciprocal velocity obstacle approach will make sure that the old velocity do not become valid at any point of time in future. It will also be the best velocity that the agents can take.
+    \item The authors then propose a generalised form of the above solution. Till now, we assumed that both the agents are equally responsible for changing their velocity. Now, the authors introduce a new variable $\alpha_B^A$, which denotes the effort A takes to avoid B. Obviously, $\alpha_A^B = 1 - \alpha_B^A$. So the new velocity obstacle $VO_B$ lies at apex $(1-\alpha^A_B) \cdot v_A + \alpha_B^A \cdot v_B$ instead of $\frac{v_A + v_B}{2}$
+    \item The RVOs can be combined for avoiding multi agent collision by taking union of all the RVOs.
+    \item The agents velocity will also be dependent on kinematic and dynamic constraints. The new set of velocities that the agent can take after taking into consideration all the constraints is called admissible velocity (AV).
+    \item If RVO of an agents fills up its entire AV, then the agent is allowed to choose a velocity inside RVO but with a penalty. This penalty is dependent on how close this chosen velocity is to the desired velocity and how time is left before the expected collision.
+    \item The authors introduce one more feature called \textit{neighbour region}. This is a region around an agent with certain radius depending on its velocity. Only obstacles inside this neighbour region will be considered for reciprocal velocity obstacle approach. This provides speedup and useful when the obstacles are actually perceived.
+    \item The authors have 3 experimental setups
+        \begin{itemize}
+            \item \textbf{Circle}: All agents (first 12 and then 250) are on a circle. Their goal position is the position of the agent which is diametrically opposite to them.
+            \item \textbf{Narrow passage}: 25 agents are present in each corner of a square room (total 100 agents). Their goal position is the corner diagonally opposite of their position. In the middle of the room, 4 static obstacles are placed such that they form a `+' shaped junction.
+            \item \textbf{Moving obstacle}: All agents are present on one side of street. Their goal position is on the other side of the street. A car is moving along the street. Car is considered as passively moving obstacle.
+        \end{itemize}
+    \item The agents are disc shaped robots with equal radii and with no acceleration constraints.
+    \item The RVO approach provides a much smoother and straight forward motion while VO approach provides a oscillatory and chaotic motion for all the agents. Nonne of the agents collide.
+    \item The authors provide a graph which describes that as the number of agents increase, frame rate decrease and the amount of time spent on each agent for a single frame increases.
+\end{itemize}
+
+\section{Deficits and contributions}
+\begin{itemize}
+    \item Experiments on real robot would have been great.
+    \item Perceiving the velocity and position and shape of other agents and obstacles is not covered.
+    \item How does the agent know if the obstacle it is seeing is another agent or a passive moving obstacle?
+    \item Local minima problem exists.
+    \item The advantages of this approach are:
+        \begin{itemize}
+            \item Oscillatory motion is prevented
+            \item Deals with obstacles moving at high speed.
+            \item Simple and easy to implement.
+            \item No collision will occur.
+        \end{itemize}
+\end{itemize}
+
+\begin{thebibliography}{1}
+    \bibitem{van2008reciprocal} Van Den Berg, J.; Lin, M. \& Manocha, D. ``Reciprocal velocity obstacles for real-time multi-agent navigation'', \textit{IEEE International Conference on Robotics and Automation}, 2008.
+    \bibitem{fiorini1998motion} Fiorini, P. \& Shiller, Z. ``Motion planning in dynamic environments using velocity obstacles'', \textit{The International Journal of Robotics Research}, 1998.
+\end{thebibliography}
+
+\end{document}

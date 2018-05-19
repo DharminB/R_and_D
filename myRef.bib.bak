@@ -1,0 +1,444 @@
+% This file was created with JabRef 2.10.
+% Encoding: UTF-8
+
+
+@PhdThesis{abu2011trajectory,
+  Title                    = {Trajectory planning for industrial robot using genetic algorithms},
+  Author                   = {Abu-Dakka, Fares Jawad Mohd},
+  School                   = {Not available},
+  Year                     = {2011}
+}
+
+@InProceedings{brock1999high,
+  Title                    = {High-speed navigation using the global dynamic window approach},
+  Author                   = {Brock, Oliver and Khatib, Oussama},
+  Booktitle                = {Robotics and Automation, 1999. Proceedings. 1999 IEEE International Conference on},
+  Year                     = {1999},
+  Organization             = {IEEE},
+  Pages                    = {341--346},
+  Volume                   = {1},
+
+  __markedentry            = {[dharmin:1]},
+  Comment                  = {573}
+}
+
+@Article{fiorini1998motion,
+  Title                    = {Motion planning in dynamic environments using velocity obstacles},
+  Author                   = {Fiorini, Paolo and Shiller, Zvi},
+  Journal                  = {The International Journal of Robotics Research},
+  Year                     = {1998},
+  Number                   = {7},
+  Pages                    = {760--772},
+  Volume                   = {17},
+
+  __markedentry            = {[dharmin:1]},
+  Comment                  = {1164},
+  Publisher                = {Sage Publications Sage CA: Thousand Oaks, CA}
+}
+
+@InProceedings{fiorini1996time,
+  Title                    = {Time optimal trajectory planning in dynamic environments},
+  Author                   = {Fiorini, Paolo and Shiller, Zvi},
+  Booktitle                = {Robotics and Automation, 1996. Proceedings., 1996 IEEE International Conference on},
+  Year                     = {1996},
+  Organization             = {IEEE},
+  Pages                    = {1553--1558},
+  Volume                   = {2},
+
+  Comment                  = {93}
+}
+
+@InProceedings{fiorini1995robot,
+  Title                    = {Robot Motion Planning in Dynamic Environments},
+  Author                   = {Fiorini, Paolo and Shiller, Zvi},
+  Booktitle                = {International Symposium of Robotic Research},
+  Year                     = {1995},
+  Organization             = {Citeseer},
+
+  Comment                  = {15}
+}
+
+@Article{fox1997dynamic,
+  Title                    = {The dynamic window approach to collision avoidance},
+  Author                   = {Fox, Dieter and Burgard, Wolfram and Thrun, Sebastian},
+  Journal                  = {IEEE Robotics \& Automation Magazine},
+  Year                     = {1997},
+  Number                   = {1},
+  Pages                    = {23--33},
+  Volume                   = {4},
+
+  __markedentry            = {[dharmin:1]},
+  Comment                  = {1933},
+  Publisher                = {IEEE}
+}
+
+@Article{fraichard2004inevitable,
+  Title                    = {Inevitable collision states—a step towards safer robots?},
+  Author                   = {Fraichard, Thierry and Asama, Hajime},
+  Journal                  = {Advanced Robotics},
+  Year                     = {2004},
+  Number                   = {10},
+  Pages                    = {1001--1024},
+  Volume                   = {18},
+
+  __markedentry            = {[dharmin:1]},
+  Comment                  = {339},
+  Publisher                = {Taylor \& Francis}
+}
+
+@Article{fraichard2004inevitable,
+  Title                    = {Inevitable collision states—a step towards safer robots?},
+  Author                   = {Fraichard, Thierry and Asama, Hajime},
+  Journal                  = {Advanced Robotics},
+  Year                     = {2004},
+  Number                   = {10},
+  Pages                    = {1001--1024},
+  Volume                   = {18},
+
+  Comment                  = {339},
+  Publisher                = {Taylor \& Francis}
+}
+
+@InProceedings{gal2009efficient,
+  Title                    = {Efficient and safe on-line motion planning in dynamic environments},
+  Author                   = {Gal, Oren and Shiller, Zvi and Rimon, Elon},
+  Booktitle                = {Robotics and Automation, 2009. ICRA'09. IEEE International Conference on},
+  Year                     = {2009},
+  Organization             = {IEEE},
+  Pages                    = {88--93},
+
+  Comment                  = {40}
+}
+
+@InProceedings{guy2009clearpath,
+  Title                    = {Clearpath: highly parallel collision avoidance for multi-agent simulation},
+  Author                   = {Guy, Stephen J and Chhugani, Jatin and Kim, Changkyu and Satish, Nadathur and Lin, Ming and Manocha, Dinesh and Dubey, Pradeep},
+  Booktitle                = {Proceedings of the 2009 ACM SIGGRAPH/Eurographics Symposium on Computer Animation},
+  Year                     = {2009},
+  Organization             = {ACM},
+  Pages                    = {177--187},
+
+  __markedentry            = {[dharmin:1]},
+  Comment                  = {250}
+}
+
+@Article{hoy2015algorithms,
+  Title                    = {Algorithms for collision-free navigation of mobile robots in complex cluttered environments: a survey},
+  Author                   = {Hoy, Michael and Matveev, Alexey S. and Savkin, Andrey V.},
+  Journal                  = {Robotica},
+  Year                     = {2015},
+  Number                   = {3},
+  Pages                    = {463–497},
+  Volume                   = {33},
+
+  Comment                  = {110},
+  Doi                      = {10.1017/S0263574714000289},
+  Publisher                = {Cambridge University Press}
+}
+
+@Article{hsu2002randomized,
+  Title                    = {Randomized kinodynamic motion planning with moving obstacles},
+  Author                   = {Hsu, David and Kindel, Robert and Latombe, Jean-Claude and Rock, Stephen},
+  Journal                  = {The International Journal of Robotics Research},
+  Year                     = {2002},
+  Number                   = {3},
+  Pages                    = {233--255},
+  Volume                   = {21},
+
+  __markedentry            = {[dharmin:1]},
+  Comment                  = {741},
+  Publisher                = {SAGE Publications Sage UK: London, England}
+}
+
+@InProceedings{keshmiri2009overview,
+  Title                    = {An overview of mobile robotic agents motion planning in dynamic environments},
+  Author                   = {Keshmiri, Soheil and Payandeh, Shahram},
+  Booktitle                = {Proceedings of the 14th IASTED International Conference, Robotics and Applications (RA20), MA, Boston},
+  Year                     = {2009},
+  Pages                    = {152--159},
+
+  Comment                  = {7}
+}
+
+@InProceedings{kluge2002motion,
+  Title                    = {Motion coordination in dynamic environments: reaching a moving goal while avoiding moving obstacles},
+  Author                   = {B. Kluge and D. Bank and E. Prassler},
+  Booktitle                = {Proceedings. 11th IEEE International Workshop on Robot and Human Interactive Communication},
+  Year                     = {2002},
+  Pages                    = {512-517},
+
+  Comment                  = {8},
+  Doi                      = {10.1109/ROMAN.2002.1045673},
+  Keywords                 = {man-machine systems;mobile robots;path planning;dynamic environments;human robot interaction;mobile robot;motion coordination;moving goal;moving guide;moving obstacles;pedestrian area;railway station;robot motion planning;robotic wheelchair;velocity obstacles;Communication channels;Hospitals;Human robot interaction;Mobile robots;Rail transportation;Robot kinematics;Robot motion;Testing;Tracking;Wheelchairs}
+}
+
+@InProceedings{kluge2004reflective,
+  Title                    = {Reflective navigation: Individual behaviors and group behaviors},
+  Author                   = {Kluge, Boris and Prassler, Erwin},
+  Booktitle                = {Robotics and Automation, 2004. Proceedings. ICRA'04. 2004 IEEE International Conference on},
+  Year                     = {2004},
+  Organization             = {IEEE},
+  Pages                    = {4172--4177},
+  Volume                   = {4},
+
+  Comment                  = {68}
+}
+
+@Article{lamiraux2004reactive,
+  Title                    = {Reactive path deformation for nonholonomic mobile robots},
+  Author                   = {Lamiraux, Florent and Bonnafous, David and Lefebvre, Olivier},
+  Journal                  = {IEEE transactions on robotics},
+  Year                     = {2004},
+  Number                   = {6},
+  Pages                    = {967--977},
+  Volume                   = {20},
+
+  Comment                  = {199},
+  Publisher                = {IEEE}
+}
+
+@Misc{latombe1990robot,
+  Title                    = {Robot Motion Planning (the Kluwer international series in engineering and computer science)},
+
+  Author                   = {Latombe, Jean-Claude},
+  Year                     = {1990},
+
+  Publisher                = {Kluwer}
+}
+
+@InProceedings{martinez2009collision,
+  Title                    = {Collision avoidance in dynamic environments: an ics-based solution and its comparative evaluation},
+  Author                   = {Martinez-Gomez, Luis and Fraichard, Thierry},
+  Booktitle                = {Robotics and Automation, 2009. ICRA'09. IEEE International Conference on},
+  Year                     = {2009},
+  Organization             = {IEEE},
+  Pages                    = {100--105},
+
+  Comment                  = {53}
+}
+
+@Article{minguez2004nearness,
+  Title                    = {Nearness diagram (ND) navigation: collision avoidance in troublesome scenarios},
+  Author                   = {Minguez, Javier and Montano, Luis},
+  Journal                  = {IEEE Transactions on Robotics and Automation},
+  Year                     = {2004},
+  Number                   = {1},
+  Pages                    = {45--59},
+  Volume                   = {20},
+
+  __markedentry            = {[dharmin:1]},
+  Comment                  = {532},
+  Publisher                = {IEEE}
+}
+
+@Article{mohanan2018a,
+  Title                    = {A survey of robotic motion planning in dynamic environments},
+  Author                   = {M.G. Mohanan and Ambuja Salgoankar},
+  Journal                  = {Robotics and Autonomous Systems},
+  Year                     = {2018},
+  Pages                    = {171 - 185},
+  Volume                   = {100},
+
+  Comment                  = {1},
+  Doi                      = {https://doi.org/10.1016/j.robot.2017.10.011},
+  ISSN                     = {0921-8890},
+  Keywords                 = {Robot motion planning, Dynamic environments, Collision avoidance},
+  Owner                    = {dharmin},
+  Timestamp                = {2018.05.11},
+  Url                      = {http://www.sciencedirect.com/science/article/pii/S0921889017300313}
+}
+
+@Article{mujahed2018admissible,
+  Title                    = {Admissible gap navigation: A new collision avoidance approach},
+  Author                   = {Mujahed, Muhannad and Fischer, Dirk and Mertsching, B{\"a}rbel},
+  Journal                  = {Robotics and Autonomous Systems},
+  Year                     = {2018},
+  Pages                    = {93--110},
+  Volume                   = {103},
+
+  Comment                  = {1},
+  Publisher                = {Elsevier}
+}
+
+@Article{ogren2005convergent,
+  Title                    = {A convergent dynamic window approach to obstacle avoidance},
+  Author                   = {Ogren, Petter and Leonard, Naomi Ehrich},
+  Journal                  = {IEEE Transactions on Robotics},
+  Year                     = {2005},
+  Number                   = {2},
+  Pages                    = {188--195},
+  Volume                   = {21},
+
+  __markedentry            = {[dharmin:1]},
+  Comment                  = {238},
+  Publisher                = {IEEE}
+}
+
+@InProceedings{owen2006a,
+  Title                    = {A Robocentric Motion Planner for Dynamic Environments Using the Velocity Space},
+  Author                   = {E. Owen and L. Montano},
+  Booktitle                = {2006 IEEE/RSJ International Conference on Intelligent Robots and Systems},
+  Year                     = {2006},
+  Month                    = {Oct},
+  Pages                    = {4368-4374},
+
+  Comment                  = {41},
+  Doi                      = {10.1109/IROS.2006.282012},
+  ISSN                     = {2153-0858},
+  Keywords                 = {collision avoidance;motion control;robot kinematics;velocity control;collision free trajectory;dynamic environments;kinematic constraints;nonlinear optimization;robocentric motion planning;robot velocities;velocity space;Acceleration;Constraint optimization;Intelligent robots;Kinematics;Motion planning;Optimization methods;Orbital robotics;Robot motion;Robot sensing systems;Trajectory}
+}
+
+@InProceedings{owen2005motion,
+  Title                    = {Motion planning in dynamic environments using the velocity space},
+  Author                   = {E. Owen and L. Montano},
+  Booktitle                = {2005 IEEE/RSJ International Conference on Intelligent Robots and Systems},
+  Year                     = {2005},
+  Month                    = {Aug},
+  Pages                    = {2833-2838},
+
+  Comment                  = {55},
+  Doi                      = {10.1109/IROS.2005.1545110},
+  ISSN                     = {2153-0858},
+  Keywords                 = {collision avoidance;mobile robots;motion control;navigation;optimisation;robot dynamics;robot kinematics;collision avoidance;dynamic constraint;dynamic environment;estimated arriving time;kinematic constraint;mobile robot navigation;motion command;moving obstacles;obstacle avoidance;optimization;potential escape;robot motion planning;static obstacles;trajectory control;velocity space;Kinematics;Mobile robots;Motion control;Motion planning;Navigation;Optimal control;Orbital robotics;Robot motion;Robot sensing systems;Velocity control;Mobile robot navigation;dynamic environments;motion planning;velocity space}
+}
+
+@InProceedings{petti2005safe,
+  Title                    = {Safe motion planning in dynamic environments},
+  Author                   = {Petti, St{\'e}phane and Fraichard, Thierry},
+  Booktitle                = {Intelligent Robots and Systems, 2005.(IROS 2005). 2005 IEEE/RSJ International Conference on},
+  Year                     = {2005},
+  Organization             = {IEEE},
+  Pages                    = {2210--2215},
+
+  __markedentry            = {[dharmin:1]},
+  Comment                  = {236}
+}
+
+@InProceedings{prassler1994motion,
+  Title                    = {Motion planning amongst arbitrarily moving unknown objects},
+  Author                   = {E. A. Prassler and E. E. Milios},
+  Booktitle                = {Intelligent Robots and Systems '94. 'Advanced Robotic Systems and the Real World', IROS '94. Proceedings of the IEEE/RSJ/GI International Conference on},
+  Year                     = {1994},
+  Month                    = {Sep},
+  Pages                    = {1338-1346 vol.2},
+  Volume                   = {2},
+
+  Comment                  = {2},
+  Doi                      = {10.1109/IROS.1994.407509},
+  Keywords                 = {mobile robots;parallel processing;path planning;2D potential distribution manipulation;arbitrarily moving unknown objects;collision-free trajectories;massively parallel network;motion planning;object avoidance;relaxation process;space-time representation;space-time search;Algorithm design and analysis;Humans;Legged locomotion;Mobile robots;Motion analysis;Motion planning;Process planning;Shape;Vehicle dynamics;Vehicles}
+}
+
+@Article{prassler2001robotics,
+  Title                    = {A robotics wheelchair for crowded public environment},
+  Author                   = {Prassler, Erwin and Scholz, Jens and Fiorini, Paolo},
+  Journal                  = {IEEE Robotics \& Automation Magazine},
+  Year                     = {2001},
+  Number                   = {1},
+  Pages                    = {38--45},
+  Volume                   = {8},
+
+  Comment                  = {210},
+  Publisher                = {IEEE}
+}
+
+@InProceedings{qixin2006evolutionary,
+  Title                    = {An evolutionary artificial potential field algorithm for dynamic path planning of mobile robot},
+  Author                   = {Qixin, Cao and Yanwen, Huang and Jingliang, Zhou},
+  Booktitle                = {Intelligent Robots and Systems, 2006 IEEE/RSJ International Conference on},
+  Year                     = {2006},
+  Organization             = {IEEE},
+  Pages                    = {3331--3336},
+
+  Comment                  = {54}
+}
+
+@InProceedings{seder2007dynamic,
+  Title                    = {Dynamic window based approach to mobile robot motion control in the presence of moving obstacles},
+  Author                   = {Seder, Marija and Petrovic, Ivan},
+  Booktitle                = {Robotics and Automation, 2007 IEEE International Conference on},
+  Year                     = {2007},
+  Organization             = {IEEE},
+  Pages                    = {1986--1991},
+
+  Comment                  = {164}
+}
+
+@InProceedings{shiller2010nonlinear,
+  Title                    = {The nonlinear velocity obstacle revisited: The optimal time horizon},
+  Author                   = {Shiller, Zvi and Gal, Oren and Fraichard, Thierry and others},
+  Booktitle                = {Workshop on guaranteeing safe navigation in dynamic environments. In IEEE international conference on robotics and automation},
+  Year                     = {2010},
+
+  Comment                  = {10}
+}
+
+@InProceedings{shiller2001motion,
+  Title                    = {Motion planning in dynamic environments: Obstacles moving along arbitrary trajectories},
+  Author                   = {Shiller, Zvi and Large, Frederic and Sekhavat, Sepanta},
+  Booktitle                = {Robotics and Automation, 2001. Proceedings 2001 ICRA. IEEE International Conference on},
+  Year                     = {2001},
+  Organization             = {IEEE},
+  Pages                    = {3716--3721},
+  Volume                   = {4},
+
+  Comment                  = {164}
+}
+
+@InProceedings{van2006anytime,
+  Title                    = {Anytime path planning and replanning in dynamic environments},
+  Author                   = {Van Den Berg, Jur and Ferguson, Dave and Kuffner, James},
+  Booktitle                = {Robotics and Automation, 2006. ICRA 2006. Proceedings 2006 IEEE International Conference on},
+  Year                     = {2006},
+  Organization             = {IEEE},
+  Pages                    = {2366--2371},
+
+  __markedentry            = {[dharmin:1]},
+  Comment                  = {227}
+}
+
+@InCollection{van2011reciprocal,
+  Title                    = {Reciprocal n-body collision avoidance},
+  Author                   = {Van Den Berg, Jur and Guy, Stephen J and Lin, Ming and Manocha, Dinesh},
+  Booktitle                = {Robotics research},
+  Publisher                = {Springer},
+  Year                     = {2011},
+  Pages                    = {3--19},
+
+  __markedentry            = {[dharmin:1]},
+  Comment                  = {617}
+}
+
+@InProceedings{van2008reciprocal,
+  Title                    = {Reciprocal velocity obstacles for real-time multi-agent navigation},
+  Author                   = {Van Den Berg, Jur and Lin, Ming and Manocha, Dinesh},
+  Booktitle                = {Robotics and Automation, 2008. ICRA 2008. IEEE International Conference on},
+  Year                     = {2008},
+  Organization             = {IEEE},
+  Pages                    = {1928--1935},
+
+  __markedentry            = {[dharmin:1]},
+  Comment                  = {682}
+}
+
+@PhdThesis{van2007path,
+  Title                    = {Path planning in dynamic environments},
+  Author                   = {Van den Berg, Jur Pieter},
+  School                   = {Utrecht University},
+  Year                     = {2007},
+
+  Comment                  = {44}
+}
+
+@Article{van2005roadmap,
+  Title                    = {Roadmap-based motion planning in dynamic environments},
+  Author                   = {Van Den Berg, Jur P and Overmars, Mark H},
+  Journal                  = {IEEE Transactions on Robotics},
+  Year                     = {2005},
+  Number                   = {5},
+  Pages                    = {885--897},
+  Volume                   = {21},
+
+  Comment                  = {197},
+  Publisher                = {IEEE}
+}
+
