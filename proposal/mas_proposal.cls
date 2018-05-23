@@ -153,7 +153,7 @@ Supervised by\par
 
 \vfill
 
-{\large Month 20XX}
+{\large May 2018}
 \end{titlepage}
 \restoregeometry
 
@@ -193,10 +193,10 @@ Supervised by\par
     \fancyhf{}
     \renewcommand*\headrulewidth{0pt}
     \renewcommand*\footrulewidth{0pt}
-    \fancyfoot[L]{\@author}
-    \fancyhead[C]{\@title}
+    \fancyfoot[L]{\textit{\@author}}
+    \fancyhead[L]{\textit{\@title}}
     \fancyfoot[C]{\thepage}
-    \fancyfoot[R]{\@project}
+    \fancyfoot[R]{\textit{\@project}}
 }
 
 %% Fancy style for the main matter.

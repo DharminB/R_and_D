@@ -69,7 +69,7 @@
     \item Existing approaches generally provide critique and deficiencies on their previous works. These are generally helpful but they mostly compare their approach with the existing solutions and only point out the deficincies that they have addressed. Therefore, though these comparisions are helpful, they might not be completely reliable.
 \end{itemize}
 
-\section{State of the art}
+\section{Approaches in RMP for dynamic environment}
 \subsection{Velocity based}
 \begin{itemize}
     \item \textit{Dynamic window approach}: Fox et al. \cite{fox1997dynamic} proposed the original idea for simply optimizing a function which balances robot's distance from goal, distance from nearest obstacle and current velocity. This approach, despite being robust, simple and fast did not work for dynamic environment. 
@@ -86,63 +86,74 @@
 
 \subsection{Roadmap based}
 \begin{itemize}
-    \item \textit{Probabilistic roadmap}: Hsu et al.\cite{hsu2002randomized} provides an extension of probabilistic roadmap approach by considering kinodynamics of the robot before choosing a motion control.
-    \item \cite{van2005roadmap}
+    \item \textit{Randomized kinodynamic planning}: Hsu et al.\cite{hsu2002randomized} provides an extension of probabilistic roadmap approach by considering kinodynamics of the robot before choosing a motion control.
+    \item Van den berg et al.\cite{van2005roadmap} provides an extension on roadmap based motion planning for static and dynamic obstacles.
 \end{itemize}
 
 \subsection{Other}
 \begin{itemize}
-    \item \textit{Nearness diagram}: \cite{minguez2004nearness}
+    \item \textit{Nearness diagram}: \cite{minguez2004nearness} proposes a \textit{divide and conquer} strategy for RMP in dynamic environment using a geometry based implementation of their approach.
 \end{itemize}
 
 
 \chapter{Project Plan}
 
-\section{Work Packages}
+\section{Work Packages and milestones}
 The bare minimum will include the following packages:
-\begin{enumerate}
-    \item[WP1] Literature Search
-    \item[WP2] Experiments
-    \item[WP3] Project Report
-\end{enumerate}
-Keep in mind that depending on your project, you will probably need to add work packages that are more suited to your projects.
-
-\section{Milestones}
-\begin{enumerate}
-    \item[M1] Literature search
-    \item[M2] Experimental setup
-    \item[M3] Experimental Analysis
-    \item[M4] Report submission
-\end{enumerate}
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Work packages} & \textbf{Milestones} \\\hline
+        Literature search   & Gather literature \\\hline
+        Literature review   & Create review criteria and use case \\
+                            & Compare different approaches \\
+                            & Create annotated biliography \\ 
+                            & Exclude approaches based on review criteria \\ 
+                            & Create summary of review \\\hline
+        Experiments         & Choose approaches to test \\
+                            & Implement approaches\\ 
+                            & Perform experiments and gether results \\ 
+                            & Evaluate results \\\hline 
+        Documentation       & Document conclusion and review \\
+                            & Refine report for better readability \\\hline 
+    
+    \end{tabular}
+    \caption{Work packages and milestones\label{tab:workpackagesandmilestones}}
+\end{table}
 
 \section{Project Schedule}
-Include a gantt chart here. It doesn't have to be detailed, but it should include the milestones you mentioned above.
-Make sure to include the writing of your report throughout the whole project, not just at the end.
 
 \begin{figure}[h!]
-    \includegraphics[width=\textwidth]{rnd_deliverable_timeline}
-    \caption{}
+    \includegraphics[width=0.3\textwidth]{deliverable_timeline.jpg}
+    \caption{Gannt chart of milestones}
     \label{}
 \end{figure}
 
 \section{Deliverables}
-\subsection{Minimum Viable}
+\subsection{Minimum}
 
 \begin{itemize}
-    \item Survey
+    \item Annotated bibliography on RMP for dynamic environment
     \item Analysis of state of the art
-    \item Simple simulated use case
-    \item Demo on youBot or Jenny
+    \item Description of review criteria
+    \item Demonstration of 3 approaches in simulation
+    \item Demonstration of 3 approaches on a real robot
+    \item R \& D report 
 \end{itemize}
 
 \subsection{Expected}
 \begin{itemize}
-    \item Comparation of approaches in the robot
+    \item All items in minimum deliverable
+    \item Description of use cases
+    \item Demonstration of 1 additional approach in simulation
 \end{itemize}
 
 \subsection{Desired}
 \begin{itemize}
-    \item Integration to scenario
+    \item All items in expented deliverable
+    \item Detailed analysis of the result
+    \item Demonstartion of 1 additional approach in simulation
 \end{itemize}
 
 
