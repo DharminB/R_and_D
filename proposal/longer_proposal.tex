@@ -20,35 +20,45 @@
 \pagestyle{plain}
 
 \chapter{Introduction}
-The topic for this R\&D is motion planning for dynamic environment. 
-By solving this problem, we can ensure 
 \begin{itemize}
-    \item Safe environment for humans and for robots
-    \item Cost effective transportation of goods
-\end{itemize}
-Motion planning in dynamic environment needs to perform the following task
-\begin{itemize}
-    \item Reach the desired target position
-    \item Avoid static and moving obstacle
-    \item Consider actuator constraints
-    \item Consider geometry of robot
-\end{itemize}
-It needs to perform these tasks in \textit{fast} and \textit{efficient} manner. 
-The \textit{fast} nature of planner dictates that the planning of motion should be at least performed in real time for the robot to react to its environment. 
-An approach is \textit{efficient} if the planner
-\begin{itemize}
-    \item does not collide
-    \item takes minimal time to reach goal position
-    \item does not require a large amount of sensor data
-    \item does not require a lot of computational resources
+    \item Mobile robot needs a plan to reach to its desired goal. This plan is provided by motion planning algorithms.
+    \item Robot motion planning (RMP) for static environment is not sufficient for most of the applications.
+    \item Take for example, a robotic wheel chair or robot carrying hospital bed. These robots needs to tackle moving obstacle like patients, other wheel chairs, hospital beds, etc\. while safely moving towards its goal in a structured environment containing hallways, rooms and corridors.
+    \item This type of problem applications need RMP for dynamic environment. 
+    \item By solving this problem, we can ensure 
+        \begin{itemize}
+            \item Safe environment for humans and for robots
+            \item Cost effective transportation of goods
+        \end{itemize}
+    \item RMP in dynamic environment needs to perform the following task
+        \begin{itemize}
+            \item Reach the desired target
+            \item Avoid static and moving obstacle
+        \end{itemize}
+    \item It needs to perform these tasks in \textit{fast} and \textit{efficient} manner. 
+    \item The \textit{fast} nature of planner dictates that the planning of motion should be atleast performed in real time for the robot to react to its environment. 
+    \item \textit{Efficiency} of the planner can be defined on the basis of 
+        \begin{itemize}
+            \item Amount of information needed about the environment
+            \item Computation limits
+            \item Time to reach goal position
+            \item Number of collisions encountered (should be 0)
+        \end{itemize}
 \end{itemize}
 
 \section{Problem Statement}
 \begin{itemize}
-    \item Current approaches are not generalised for all types of robot. They work best for circular holonomic robots. Velocity based approaches, which perform very well, are mostly tested on point sized robots.
-    \item Some approaches are defined and tested for non-holonomic vehicles, but they either lack in terms of computation speed or they do not guarantee a solution.
+    \item Current approaches solves these problems. Though they are not generalised for all types of robot. They work best for circular holonomic robots. Velocity based approaches, which perform very well, are mostly tested on point sized robots.
+    \item Some approaches are defined and tested for non-holonomic vehicles, but they lack in terms of speed.
     \item Most of the approaches do not even address how the objects needs to be perceived. They do not address how errors from perception and control would influence the planner's efficiency.
-    \item This work will provide a comparative study on existing approaches for motion planning in time varying environment.
+    \item This work will provide a comparative study on existing approaches for RMP in dynamic environment.
+    \item This comparative study will include 
+        \begin{itemize}
+            \item An in depth literature review of existing approaches
+            \item Identifying top solutions
+            \item Evaluating these candidates on various practical test on a real and simulated environment
+            \item Identifying the best solution based on performance measure
+        \end{itemize} 
 \end{itemize}
 
 \chapter{Related Work}
@@ -57,20 +67,20 @@ An approach is \textit{efficient} if the planner
     \item As the measuring criterion for each of them is different, it becomes an impossible task to determine a clear winner.
     \item There are several existing survey article:
         \begin{itemize}
-            \item Mohanan et al.\cite{mohanan2018a} covers 101 research papers that were published between 1985 and 2016 in the field of motion planning in dynamic environment. 
+            \item Mohanan et al.\cite{mohanan2018a} covers 101 research papers that were published between 1985 and 2016 in the field of RMP in dynamic environment. 
                 They have addressed all the approaches but a comparative analysis of all the approaches with their contributions and deficiencies is left to be desired.
             \item Hoy et al.\cite{hoy2015algorithms} provides a survey for algorithms which provide collision free navigation for robots. 
                 This survey is not only detailed but also quite broad as it covers obstacle avoidance algorithm as well. 
                 Even though it provides a comparison between main approaches based on numerous criterion, it still does not evaluate these approaches on a standard uniform test.
-            \item Keshmiri et al.\cite{keshmiri2009overview} provides a survey specifically for motion planning in dynamic environment. 
+            \item Keshmiri et al.\cite{keshmiri2009overview} provides a survey specifically for RMP in dynamic environment. 
                 It covers all the approaches presented in research papers published between 1986 and 2008 totalling up to 150 papers. 
-                They have provided a comparison on how much contribution has been made in motion planning field based on different approach but regarding the actual approaches itself, only a summary of at most 2\-3 sentences for each approach is provided.
-            \item Approaches~\cite{fujimura1991motion} and~\cite{tsubouchi1996motion} are quite dated and does not cover any state of the art approaches in motion planning for dynamic environment.
+                They have provided a comparison on how much contribution has been made in RMP field based on different approach but regarding the actual approaches itself, only a summary of at most 2\-3 sentences for each approach is provided.
+            \item Approaches~\cite{fujimura1991motion} and~\cite{tsubouchi1996motion} are quite dated and does not cover any state of the art approaches in RMP for dynamic environment.
         \end{itemize}
     \item Existing approaches generally provide critique and deficiencies on their previous works. These are generally helpful but they mostly compare their approach with the existing solutions and only point out the deficiencies that they have addressed. Therefore, though these comparisons are helpful, they might not be completely reliable.
 \end{itemize}
 
-\section{Approaches in motion planning for dynamic environment}
+\section{Approaches in RMP for dynamic environment}
 \subsection{Velocity based}
 \begin{itemize}
     \item \textit{Dynamic window approach}: Fox et al.\cite{fox1997dynamic} proposed the original idea for simply optimizing a function which balances robot's distance from goal, distance from nearest obstacle and current velocity. This approach, despite being robust, simple and fast did not work for dynamic environment. 
@@ -93,7 +103,7 @@ An approach is \textit{efficient} if the planner
 
 \subsection{Other}
 \begin{itemize}
-    \item \textit{Nearness diagram}:~\cite{minguez2004nearness} proposes a \textit{divide and conquer} strategy for motion planning in dynamic environment using a geometry based approach for their implementation.
+    \item \textit{Nearness diagram}:~\cite{minguez2004nearness} proposes a \textit{divide and conquer} strategy for RMP in dynamic environment using a geometry based implementation of their approach.
 \end{itemize}
 
 
@@ -105,26 +115,19 @@ The bare minimum will include the following packages:
     \centering
     \begin{tabular}{|l|l|}
         \hline
-        \textbf{Work packages} & \textbf{Tasks} \\\hline
-        Literature review   & Gather literature on motion planning for dynamic environment\\
+        \textbf{Work packages} & \textbf{Milestones} \\\hline
+        Literature review   & Gather literature on RMP for dynamic environment\\
                             & Define use cases based on general situations of motion planning \\
                             & Create a solid review criteria based on use case\\
                             & Compare different approaches based on review criteria\\
                             & Exclude approaches based on review criteria \\ 
                             & Create annotated bibliography for top 30 approaches\\ 
                             & Create summary of annotated bibliography and add it to report\\\hline
-        Identify parameters & Define performance metrics to test approaches \\
-        for Experiments     & Identify parameters and assumptions of dynamic environment\\
-                            & which will be used for experiments\\
-                            & Refine use cases (if needed)\\
-                            & Choose top 3 motion planning approaches based on use case\\
-                            & Add description of dynamic environment, use cases and \\
-                            & performance metrics to report\\\hline
-         Experiments        & Implement top 3 motion planning approaches\\ 
-                            & Test 3 approaches on use cases and gather results \\ 
-                            & Analyse results and provide explanation for it\\
-                            & Provide conclusion of experiment\\
-                            & Document experiment results, proof and conclusion \\\hline
+        Experiments         & Define performance metrics to test approaches \\
+                            & Choose top 5 RMP approaches to test based on use case\\
+                            & Implement top 3 RMP approaches\\ 
+                            & Test 3 approaches on use case and gather results \\ 
+                            & Analyse results and provide conclusion \\\hline 
         Documentation       & Document conclusion and review \\
                             & Refine report for better readability \\\hline 
     
@@ -133,39 +136,48 @@ The bare minimum will include the following packages:
 \end{table}
 
 \section{Project Schedule}
-Please see Figure~\ref{fig:gantt}
+
+DELETE BEFORE FINAL\\
+literature review: till end of july\\
+Experiment: till end of mid December\\
+Documentation: parallel with literature review and experimentation, refining report till january 1st week \\
+
 \begin{figure}[h!]
-    \includegraphics[width=1.0\textwidth]{gantt_chart2.png}
-    \caption{Gannt chart for workpackages\label{fig:gantt}}
+    \includegraphics[width=0.3\textwidth]{deliverable_timeline.jpg}
+    \caption{Gannt chart of milestones}
+    \label{}
 \end{figure}
 
 \section{Deliverables}
 \subsection{Minimum}
 
 \begin{itemize}
-    \item Annotated bibliography on top 30 approaches for motion planning in dynamic environment
-    \item Description of review criteria, use cases, performance metrics
-    \item Comparison of 3 approaches of motion planning in dynamic environment in simulation
-    \item Proof of these 3 approaches being best based on experiment results and analysis
+    \item Annotated bibliography on RMP for dynamic environment
+    \item Analysis of state of the art
+    \item Description of review criteria
+    \item Demonstration of 3 approaches in simulation
+    \item Demonstration of 3 approaches on a real robot
     \item R \& D report 
 \end{itemize}
 
 \subsection{Expected}
 \begin{itemize}
     \item All items in minimum deliverable
-    \item Comparison of 3 approaches of motion planning in dynamic environment on actual robot
+    \item Description of use cases
+    \item Demonstration of 1 additional approach in simulation
 \end{itemize}
 
 \subsection{Desired}
 \begin{itemize}
     \item All items in expected deliverable
-    \item Experiment results of 3 approaches on more use cases and complex scenarios
-    \item Comparison of an additional algorithm
+    \item Detailed analysis of the result
+    \item Demonstration of 1 additional approach in simulation
 \end{itemize}
+
 
 %\nocite{*}
 
-\bibliographystyle{ieeetr} % Use the plainnat bibliography style
+\bibliographystyle{plain} % Use the plainnat bibliography style
 \bibliography{../myRef.bib} % Use the bibliography.bib file as the source of references
 
 

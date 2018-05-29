@@ -76,7 +76,7 @@
 \usepackage{setspace}
 \usepackage{lipsum} % Used to test
 
-\onehalfspacing
+%\onehalfspacing
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Fonts
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
