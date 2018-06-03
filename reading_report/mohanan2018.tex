@@ -1,0 +1,161 @@
+\documentclass[12pt]{article}
+\usepackage{natbib,amsmath,amsfonts,fullpage,hyphenat,booktabs,graphicx,setspace}
+\usepackage[colorlinks,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\setcitestyle{square,super,comma}
+\onehalfspacing{}
+
+\title{Reading report\\A survey of robotic motion planning in dynamic environments\cite{mohanan2018a}}
+\author{Dharmin Bakaraniya}
+\begin{document}
+\maketitle{}
+
+\begin{abstract}
+Robot Motion Planning (RMP) has been a thrust area of research in computing due to its complexity,
+since RMP in dynamic environments for a point robot with bounded velocity is an NP-hard problem. This
+paper is a critical review of the major contributions to RMP in dynamic environments. Between 1985 and
+2015 the focus has changed from the classical approach to a heuristic approach. For velocity based motion
+planning in dynamic environments, ICS — AVOID (Fraichard and Asama, 2004, also see Section 2.4.4) is the
+safest approach which means that this method have the capability of for an autonomous robotic system
+to avoid collision with the obstacles in the environment. Other important approaches include artificial
+potential field based, artificial intelligence based, probabilistic based RMP and applications in areas of
+Agent systems and computer geometry. Classification of the RMP literature on the basis of the techniques
+and their performance has been attempted.
+\end{abstract}
+
+\section{Summary}
+\begin{itemize}
+    \item A planner that can find the optimal path if one exists and reports null when a path does not exist will take exponential time in terms of degree of freedom of the robot. This makes robot motion planning in dynamic environment a NP complete problem.
+    \item With bounded velocity and arbitrary obstacles, motion planning for a point robot in a plane  is intractable and NP hard.
+    \item The authors divide robot motion planning for dynamic environment in several parts
+    \begin{itemize}
+        \item \textit{Artificial potential field}
+        \begin{itemize}
+            \item Whole map is a field. Goal has an attrative force while obstacles have repulsive force. The resultant force being applied on the robot will have a direction and magnitude.
+            \item This resultant force is used to calculate the direction and speed of the robot.
+            \item The robot is considered a point mass and it is able to perceive the position and velocity of the obstacles. The obstacles are convex polygon. Only one obstacles is close to the robot.
+            \item An \textit{avoilability measure} can be employed which is a function of distance to closest obstacles and relative velocity of that obstacle. This function computes the possibility of collision.
+            \item Potential field approach has a famous problem of local minima. This has been addressed multiple time. It has also been extended to handle moving obstacles and moving target.
+        \end{itemize}
+        \item \textit{Accessibility graph}
+        \begin{itemize}
+            \item Obstacles are considered polygons. They are assumed to move in a fixed direction at constant velocity. The target is also moving.
+            \item A graph is generated from a point to the moving target. This graph goes through the obstacles as well. If the robot can move faster than obstacles then the algorithm returns a time optimal path with complexity $O(n^2 \log n)$ (where n is number of vertices in the graph).
+        \end{itemize}
+        \item \textit{Configuration space, state time space}
+        \begin{itemize}
+            \item Robot is considered to take a configuration from its configuration space. A configuration is position and orientation of the robot in global frame.
+            \item If a configuration of robot results in collision, then it is called configuration space obstacles. Union of all such region is called configuration space obstacle region. All remaining configuration form free configuration space.
+            \item Thus finding path is searching in free configuration space for a continous set of configurations from start to goal.
+            \item State time space is an extention of configuration space which considers time varying environment. It also allows to integrate dynamic constraints.
+        \end{itemize}
+        \item \textit{Velocity based approaches}
+        \begin{itemize}
+            \item The authors explain that the problem of motion planning can be divided into 2 part. First being the computation of kinematic trajectory and the second is finding the closest solution to the kinematic solution after applying dynamic constraints.
+            \item \textit{Velocity obstacle}
+            \begin{itemize}
+                \item Collision of robot with moving obstacles are determined by projecting a collision cone. Velocity obstacle of that obstacle for our robot is calculated by shifting the collision cone with velocity of obstacle. If the velocity of robot lies in this cone, then the robot will collide with that obstacle.
+                \item The robot then chooses a velocity outside that cone to avoid obstacles and move towards its target. During this step, it only considers velocities that are allowed by kinematic and dynamic constraints.
+                \item The robot and all the obstacles are considered circular. The obstacles always move with constant linear velocity.
+            \end{itemize}
+            \item \textit{Dynamic velocity space}
+            \begin{itemize}
+                \item Dynamic velocity space is a velocity time space which incorporates not only dynamic object velocity of all obstacle but also robot constraints.
+                \item Configuration space is mapped to velocity space with the help of calculation of estimated arrival time.
+                \item Heuristics based on least travel time and shortest path can be applied.
+            \end{itemize}
+            \item \textit{Dynamic window approach}
+            \begin{itemize}
+                \item Only circular path are considered which do not result into collision. The search space is a window in velocity space. The size of this window is determined by robot constraints that allow motion within certain time period.
+                \item The goal of the robot is to maximize the translation velocity while moving towards its goal and avoiding obstacles.
+                \item Time varying dynamic window (TVDW) and global dynamic window (GDW) and Non linear velocity obstacles extend this approach to remove certain deficits.
+            \end{itemize}
+            \item \textit{Inevitable collision state}
+            \begin{itemize}
+                \item ICS is a state where the robot will collide no matter what control input.
+                \item ICS-AVOID is an algorithm which avoids collision by never going into ICS\@.
+                \item This algorithm performs best compared to dynamic window and velocity obstacle when give the same amount of information.
+            \end{itemize}
+            \item \textit{Partial motion planning}
+            \begin{itemize}
+                \item It needs a model of the environment. The model can be build using sensor information as well. 
+                \item The algorithm iteratively searches the state time space till timeout. At timeout, it returns te best trajectory that it was able to find from the tree it created.
+                \item The trajectory may be incomplete so a whole collision free path is not guaranteed. But all the partial trajectory that are calculated can be ensured to have no ICSi\@.
+            \end{itemize}
+            \item \textit{Directive circle}
+            \begin{itemize}
+                \item Differential drive has a moving target and the environment is cluttered with static and moving obstacles.
+                \item A directive circle is drawn around the robot in velocity space and the obstacles is boundary are connected with the robot. If the circle intersect with those lines, then the robot will collide.
+                \item This approach performs better than offline planners and provides near optimal paths. It has safety issues in narrow passage and cannot deal with abrupt change in velocity of obstacles.
+            \end{itemize}
+            \item \textit{Differential constraints}
+            \begin{itemize}
+                \item A differential drive robot is considered here. Robot state space is represented as a graph with nodes as reachable state and edges as motion control.
+                \item The states are dynamically created given current sensor information and motion commands. This way it incorporates dynamic environment and robot constraints.
+                \item The states are denser near the robot and scarce at distance. This improves the performance on online execution. It reacts quickly to changing environment.
+            \end{itemize}
+            \item \textit{Graphic processor unit}
+            \begin{itemize}
+                \item A function similar to dynamic window is optimized by this approach using parallel processing. The approach senses the environment and replans the trajectory every iteration using graphical processors.
+                \item It does not require any information about the obstacles a priori. The approach provides a bound on responsiveness and quality of the planner with increasing number of processor.
+            \end{itemize}
+            \item \textit{Search tree algorithm, LP minimization}
+            \begin{itemize}
+                \item It is applied on UAV to avoid collision with other UAV\@. 
+                \item UAV in collision course are ordered in queue. Each UAV is then prompted to state their strategy which is optained with the help of Search tree algorithm.
+                \item It considers the distance traveled by each vehicle after each iteration and tries to minimize the number of iteration to avoid collision as fast as possible.
+            \end{itemize}
+            \item \textit{Atomic obstacle and dynamic envelop}
+            \begin{itemize}
+                \item As long as the robot is moving along a curved trajectory in xonfiguration space, collision free motion is guaranteed.
+                \item This approach does not need shape and velocity of the obstacles.
+            \end{itemize}
+            \item \textit{Temporal and spatial reshaping}
+            \begin{itemize}
+                \item The algorithm applies 2 steps to produce a 3D collision free path. First step is to obtain collision free path through kinematic sampling based motion planning and second step it to transform that path into dynamically executable one.
+                \item Temporal reshaping controls the velocity while spatial reshaping controls the trajectory.
+            \end{itemize}
+            \item \textit{Safe time interval}
+            \begin{itemize}
+                \item The approach tries to minimize the number of safe time step in its trajectory.
+                \item A safe time step is a state in configuration space that has no collisions but one step in an adjacent state will lead to a collision.
+            \end{itemize}
+            \item \textit{Rendezvous guidance technique}
+            \begin{itemize}
+                \item The robot has a moving target and has to travel in an environment with static and moving obstacles.
+                \item The algorithm first determines the state of obstacles and robot and determines the feasible velocities. It then calculate rendezvous line and rendezvuos set. It selects the common velocity.
+                \item Rendezvous line is from position of robot to velocity of target. Rendezvous set is all point on rendezvous line.
+            \end{itemize}
+            \item \textit{Real time adaptive motion planning}
+            \begin{itemize}
+                \item It is same as \textit{atomic obstacle and dynamic envelop} but for robots with large degree of freedom.
+                \item It performs in real time to optimize trajectories.
+            \end{itemize}
+            \item \textit{Predictive temporal motion planning}
+            \begin{itemize}
+                \item The environment is represented in terms of occupancy grids but they are extended to have time dimension.
+                \item This approach tries to unify planning, mapping and obstacle avoidance.
+                \item By considering the current motion of the obstacles, their future positions are estimated and the robot use motion command to avoid those positions
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+    \item The authors compare different approaches in velocity based motion planning section and state that ICS, DVS and VO account the dynamic nature of the environment the most. DW, ICS and DVS consider the dynamic and kinematic constraints the most. ICS addresses the uncertainty due to perception.
+\end{itemize}
+
+\section{Scientific contributions}
+\begin{itemize}
+    \item A survey of the state of the art in robot motion planning for dynamic environment addressing all the approaches in last 30 years.
+\end{itemize}
+
+\section{Scientific deficits}
+\begin{itemize}
+    \item The comparision between most of the approaches is not provided.
+    \item The approaches are not explained in a understandable way.
+    \item Even the comparision between few approaches that is provided does not have an objective measure. Those comparision does not contain any proof of the claims.
+    \item Mention of unrelated topic in the middle of approaches.
+\end{itemize}
+
+\begin{thebibliography}{1}
+    \bibitem{mohanan2018a} Article (mohanan2018a) Mohanan, M. \& Salgoankar, A. ``A survey of robotic motion planning in dynamic environments'', \textit{Robotics and Autonomous Systems} 2018.
+\end{thebibliography}
+
+\end{document}

@@ -78,6 +78,21 @@ with the physical world.
             \item \textit{On-the-fly replanning}: If the direction or velocity of the obstacle changes while the robot is executing the plan, the planner recomputes another trajectory. This is possible because the planner is given information 0.4 seconds in future by the perception module. This additional time is more than enough for the robot to replan.
         \end{itemize}
 \end{itemize}
+
+\section{Scientific contributions}
+\begin{itemize}
+    \item A significant extension of existing PRM approach.
+    \item Mathematical proof showing that the probability of finding trajectory to goal converges to 1 exponentially with increasing milestones.
+    \item Experimental proof of PRM approach. The approach was demonstrated not only on circular holonomic robot but also on non-holonomic robot (a collection of 2 holonomic robot connected with a link).
+    \item Some additional heuristic and techniques to perform the experiment on real robot.
+\end{itemize}
+
+\section{Scientific deficits}
+\begin{itemize}
+    \item The computation increases very much even for medium number of moving obstacles.
+    \item The approach does not guarantee to find the path to the target even if it exists because of timeout.
+\end{itemize}
+
 \begin{thebibliography}{1}
     \bibitem{hsu2002randomized} Hsu, D.; Kindel, R.; Latombe, J.-C. \& Rock, S. ``Randomized kinodynamic motion planning with moving obstacles'', \textit{The International Journal of Robotics Research}, 2002.
     \bibitem{kavraki1996} Kavraki, L., Švestka, P., Latombe, J. C., and Overmars, M. H. ``Probabilistic roadmaps for path planning in high-dimensional configuration space''. \textit{IEEE Transactions on Robotics and Automation}, 1996.

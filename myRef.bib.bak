@@ -86,11 +86,11 @@
   Publisher                = {Taylor \& Francis}
 }
 
-@Book{fujimura2012motion,
+@Book{fujimura1991motion,
   Title                    = {Motion planning in dynamic environments},
   Author                   = {Fujimura, Kikuo},
   Publisher                = {Springer Science \& Business Media},
-  Year                     = {2012}
+  Year                     = {1991}
 }
 
 @InProceedings{gal2009efficient,
