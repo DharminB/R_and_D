@@ -1,0 +1,75 @@
+\documentclass[12pt]{article}
+\usepackage{natbib,amsmath,amsfonts,fullpage,hyphenat,booktabs,graphicx,setspace}
+\usepackage[colorlinks,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\setcitestyle{square,super,comma}
+\onehalfspacing{}
+
+\title{Reading report\\ Nearness Diagram (ND) Navigation: Collision Avoidance in Troublesome Scenarios\cite{minguez2004nearness}}
+\author{Dharmin Bakaraniya}
+\begin{document}
+\maketitle{}
+
+\begin{abstract}
+    This paper addresses the reactive collision avoidance
+    for vehicles that move in very dense, cluttered, and complex
+    scenarios. First, we describe the design of a reactive navigation
+    method that uses a “divide and conquer” strategy based on situations to simplify the difficulty of the navigation. Many techniques
+    could be used to implement this design (since it is described at
+    symbolic level), leading to new reactive methods that must be
+    able to navigate in arduous environments (as the difficulty of
+    the navigation is simplified). We also propose a geometry-based
+    implementation of our design called the nearness diagram navigation. The advantage of this reactive method is to successfully move
+    robots in troublesome scenarios, where other methods present
+    a high degree of difficulty in navigating. We show experimental
+    results on a real vehicle to validate this research, and a discussion
+    about the advantages and limitations of this new approach.
+\end{abstract}
+
+\section{Summary}
+\begin{itemize}
+    \item The problem statement of this papers is to ``compute collision-free motion for a robot operating in dynamic and unknown scenarios''\cite{minguez2004nearness}.
+    \item The authors give a very short related work section where they just write different ways of sensor based navigation. They mention that most of the existing methods are unable to perform collision free navigation in highly cluttered, dense and complex environment, but they do not give reasons for this statement.
+    \item The authors then describe the situated activity paradigm. Here, the tasks are represemted in form of a set of situations. Each situation has a particular action associated with it. If the robot performs that action in that situation then it can solve the task problem.
+    \item The authors mention that the advantages of this paradigm is that 
+        \begin{itemize}
+            \item The perception action process is embedded within the paradigm itself
+            \item It is already a divide and conquer strategy. This reduces the task difficulty.
+            \item It does not have action coordination problem meaning it does not have to decide which action to take.
+        \end{itemize}
+    \item The authors describe the situated activity design.\\
+        \begin{tabular}{|c|p{6cm}|p{6cm}|}\hline
+            \textbf{Name} & \textbf{Situation} & \textbf{Action}\\\hline
+            LS1 & Obstacles in security zone on one side of free walking area & move away from closest obstacle and towards the gap \\\hline
+            LS2 & Obstacles in security zone are on both side of free walking area & center the robot between 2 closest obstacles on both side while moving towards the gap \\\hline
+            HSGR & Obstacles outside security zone and goal is in free walking area & Move robot towards the goal \\\hline
+            HSWR & Obstacles outside security zone and free walking area is wide & Move robot alongside obstacles \\\hline
+            HSNR & Obstacles outside security zone and free walking area is narrow & Direct robot towards central zone of free walking area \\\hline
+        \end{tabular}
+    \item The mention that these situation action design follows the rules of the paradigm and can be easily extended to solve other problems.
+    \item The authors describe how they implement this design. They consider a circular holonomic robot moving on a 2D plane. 
+    \item They divide the area around the robot in n=144 sectors. For each sector, the distance to the obstacles is measured and PND (nearness distance from robot center) and RND (nearness distance from robot bounds) values for each sector are calculated.
+    \item From the PND values, gaps are identified and a single gap is chosen as free walking area. An area is only identified as gap if its width is greater than diameter of robot.
+    \item The translational velocity of the robot is reduced depending on the closness of an obstacles in security zone and the amount of rotation needed.
+    \item The experiments were performed on a Nomadic XR4000, which is a circular holonomic robot. The maximum translational and rotational velocity were set to 0.3m/s and 1.57rad/s.
+    \item 3 experiments were performed testing the robot in cluttered office environment. The robot was challenged with very narrow passage, trap situations and U shaped obstacle situations. The robot was able to reach the goal in all situations.
+\end{itemize}
+
+\section{Scientific contributions}
+\begin{itemize}
+    \item A significant contribution in reactive motion control for robots like vector field histogram\cite{borenstein1991the}.
+    \item Local minima problem and oscillatory motion problem of reactive motion planning is solved.
+\end{itemize}
+
+\section{Scientific deficits}
+\begin{itemize}
+    \item As the authors mention, the approach is only applicable to circular holonomic robots.
+    \item The authors also mention that sensor uncertainty is not considered, but the approach can be extended to consider sensor uncertainty.
+    \item The authors point to their other work where they have addressed kinematic constraints of the robot which can be applied here, but they have not applied that themselves and tested.
+\end{itemize}
+
+\begin{thebibliography}{1}
+    \bibitem{minguez2004nearness} Minguez, J. \& Montano, L. ``Nearness diagram (ND) navigation: collision avoidance in troublesome scenarios'' \textit{IEEE Transactions on Robotics and Automation, IEEE} 2004.
+    \bibitem{borenstein1991the} J. Borenstein and Y. Koren, ``The vector field histogram—fast obstacle avoidance for mobile robots'' \textit{IEEE Trans. Robot. Automat} 1991.
+\end{thebibliography}
+
+\end{document}
