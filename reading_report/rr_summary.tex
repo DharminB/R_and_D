@@ -1,0 +1,96 @@
+\documentclass[11pt]{article}
+\usepackage{natbib,amsmath,amsfonts,fullpage,hyphenat,booktabs,graphicx,setspace,color}
+\usepackage[colorlinks,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\setcitestyle{square,comma}
+
+\title{Summary of reading reports for best approaches in ``Robot motion planning in dynamic environment''}
+\author{Dharmin Bakaraniya}
+\begin{document}
+\maketitle{}
+
+\section{Velocity based}
+\subsection{Dynamic window based approach to mobile robot motion control in the presence of moving obstacles\cite{seder2007dynamic}}
+\begin{itemize}
+    \item As the name states, this approach is an extension of DWA\cite{fox1997dynamic}.
+    \item It is similar to the global DWA\cite{brock1999high}, but instead of combining DWA with NF1 algorithm, they have combined DWA with FD* algorithm\cite{stentz1995focused} for global path planning.
+    \item The authors considers the obstacles (moving or static) as (a group of) occupied cells rather than an actual object with some convex shape.
+    \item Moving obstacles are detected as moving occupied cells. The planner projects the trajectory of these moving cells based on their velocity and direction.
+    \item If the trajectory of robot is intersecting with the trajectories of any cells at time t, then the occupancy grid is updated for FD* algorithm. The FD* algorithm will see the location of collision as occupied and the actual location of the occupied cell is seen as free.
+    \item On top of this, the authors have created a measure to prevent the robot from oscillating and safety cost mask for computational efficiency.
+    \item Their experiments are very simplistic but the approach seems quite robust.
+        \color{green}
+    \item Works for robot of any shape with any type of kinematic and dynamic constraints.
+    \item Does not assume the shape of the obstacle.
+        \color{red}
+    \item Assumes velocity of obstacles to remain same for few iterations.
+    \item Real time performance but computationally expensive.
+    \item Does not address errors in perception and control.
+\end{itemize}
+
+\subsection{Efficient and safe on-line motion planning in dynamic environments\cite{gal2009efficient}}
+\begin{itemize}
+    \item This approach combines NLVO\cite{shiller2001motion} (which is based on Velocity obstacle\cite{fiorini1998motion}) and Inevitable collision state (ICS)\cite{fraichard2004inevitable}.
+    \item The authors show that choosing safe time horizon before actual collision is very important to ensure complete safety. After this time has passed, the robot will have only 2 options, either to stop moving or to pass the obstacle.
+    \item The authors state that their approach is for local planning while a global planner will provide intermediate checkpoints to reach goal position. The main goal of the proposed local planner is to avoid ICS at all costs. It's secondary goal is to reach target position.
+    \item At each time interval, NLVO are calculated and \textit{attainable Cartesian velocity} (ACV) are generated based on dynamic constraints. Tree search and cost function are applied to find near optimal trajectories.
+    \item The experiment to test this approach was done in a simulation where a point sized robot successfully avoided 70 moving obstacles in a dense area and reached the target in near optimal time. The authors reassure that point mass robot is just used from simplicity and it is not a limitation.
+        \color{green}
+    \item Works with obstacles having non linear velocity.
+    \item Guarantees to never enter ICS\@.
+        \color{red}
+    \item Tested only for point mass holonomic robot.
+    \item The approach only solves local navigation, global planner is still needed.
+    \item Does not address errors in perception and control (eventhough ICS approach\cite{fraichard2004inevitable} considered error in preception).
+\end{itemize}
+
+\subsection{Motion planning in dynamic environments using the velocity space\cite{owen2005motion}}
+\begin{itemize}
+    \item This approach is an extension of velocity obstacle\cite{fiorini1998motion}.
+    \item The approach maps all the information (goal position, sensor readings, current velocity, etc) to velocity space.
+    \item Similar to velocity obstacle, \textit{dynamic object velocity} is defined. This is a 3 dimensional surface describing not only which velocity will result in collision but also when it will happen. This surface is defined in \textit{Dynamic velocity space} (DVS) which is velocity space with time as its third dimension.
+    \item A window is considered around current velocity while choosing motion command. The size of this window is dependent on dynamic constraints of the robot.
+    \item The experiments show a car like robot navigating among 4 moving obstacles along a minimum time trajectory in a simulation.
+        \color{green}
+    \item Works for robot of any shape with any kind of kinematic and dynamic constraints (as long as they can move straight and move in a circle).
+        \color{red}
+    \item Everything has to be mapped to velocity space.
+    \item Not tested for complex dynamic environment with large number of obstacles.
+    \item Does not address errors in perception and control.
+\end{itemize}
+
+\section{Roadmap based}
+\subsection{Randomized kinodynamic motion planning with moving obstacles\cite{hsu2002randomized}}
+\begin{itemize}
+    \item A set of randomly chosen intermediate locations in configuration space are chosen. For each of these configurations, if there is no collision, then they are added to a tree as \textit{milestones}.
+    \item A path from start to goal is then calculated based on the above generated tree.
+    \item The authors state that the way in which sampling is performed, determines how fast the solution is found.
+    \item The authors propose a near optimal sampling solution. They also provide a mathematical proof for how their algorithm is guaranteed to find solution with increasing number of milestones. They also provide some techniques to increase the performance of the planner.
+    \item The experiments are performed for multiple types of robot in simulation and one on a real holonomic robot. 
+        \color{green}
+    \item Works for robot of any shape with any type of kinematic constraints.
+    \item Works with obstacles having non linear velocity and randomly updated heading.
+        \color{red}
+    \item Possibility of not finding solution even if it exists.
+    \item Does not provide optimal path to reach target position.
+    \item Does not address errors in perception and control.
+        \color{black}
+\end{itemize}
+
+\section{Sensor based}
+\subsection{Nearness Diagram (ND) Navigation: Collision Avoidance in Troublesome Scenarios\cite{minguez2004nearness}}
+\begin{itemize}
+    \item The authors propose a collision avoidance motion planner for dynamic environment based on situated activity paradigm. Here the actions are chosen based on a predefined set of situations.
+    \item The authors describe their approach consisting of 5 situations with their 5 corresponding actions.
+    \color{green}    
+    \item Through experiments performed on a real holonomic circular robot, they showed that their approach is very robust in highly cluttered and dense environment and even in local minima problem.
+    \color{red}
+    \item The approach only solves local navigation, global planner is still needed.
+    \item Applicable only on holonomic robot. Not tested for dynamic environments.
+    \item Does not address errors in perception and control.
+    \color{black}
+\end{itemize}
+
+\bibliographystyle{ieeetr}
+\bibliography{../myRef.bib}
+
+\end{document}
