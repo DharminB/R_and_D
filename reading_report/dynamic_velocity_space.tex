@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+\usepackage{natbib,amsmath,amsfonts,fullpage,hyphenat,booktabs,graphicx,setspace}
+\usepackage[colorlinks,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\setcitestyle{square,super,comma}
+\onehalfspacing{}
+
+\title{Reading report\\Motion planning in dynamic environments using the velocity space\cite{owen2005motion}}
+\author{Dharmin Bakaraniya}
+\begin{document}
+\maketitle{}
+
+\begin{abstract}
+\end{abstract}
+
+\section{Summary}
+\begin{itemize}
+    \item The information gathered from sensor is mapped in velocity space based on the calculation of \textit{time to collision} and \textit{time to escape} from collision.
+    \item The authors mention that their approach can be tailored to have the robot follow many different types of behaviour like minimum time trajectory, shortest path and  moving before or after a moving obstacle.
+    \item The authors state that the advantages of their approach is that
+    \begin{itemize}
+        \item The commands are computed in velocity space to calculate optimal trajectory
+        \item the approach takes care of kinematic and dynamic constraints in the model definition itself
+        \item The velocity space conversions are continous rather than dicretised velocities
+        \item the approach implicitly incorporates time information to calculate future escape routes
+        \item Any optimisation technique or heuristic approach can be applied on this space to speed up the calculations
+    \end{itemize}
+    \item The authors assumes that a global planner provides intermediate targets and the sensors provide the location of objects (from this information, the velocity can be calculated).
+    \item The authors also assumes that the objects are polygon shaped, the robot is circular and the robot can move in straight and circular path.
+    \item The authors explain a simple example where a robot is moving along a circular trajectory and an obstacles is moving along a straight path (collision band). The robot can avoid collision in two ways
+        \begin{itemize}
+            \item Move before the obstacles arrives
+            \item wait for the obstacles to pass
+        \end{itemize}
+    \item For both these possibility, the robot calculate the time of escape and position in local reference frame. Then the angular and linear velocity are calculate based on time and position calculated before.
+    \item These velocities are computed for the whole velocity space (linear velocity vs.\ angular velocity vs.\ time). This creates a surface in velocity space which is named \textit{dynamic object velocity} (DOV).
+    \item The important thing about this surface is that if the current velocity point is below this surface (the time of collision has not yet occurred) then the robot can still choose a velocity in the area of collision.
+    \item The space in which DOV is defined is called \textit{dynamic velocity space} (DVS) which not only includes DOV but also the free space.
+    \item The dynamic and kinematic constraints are considered by creating a bounding box while choosing the velocity command for the robot. The planner will only choose a velocity point inside the dynamic constraint bounding rectangle and will only consider the velocity in side kinematic constraint bounding box for escape routes.
+    \item The authors describe a heuristic method to calculate the velocity for the robot. The method is divided into 3 parts
+        \begin{enumerate}
+            \item map goal to DVS
+            \item compute velocity command towards goal
+            \item compute setpoint velocity in sampling velocity
+        \end{enumerate}
+    \item The authors test their approach on a (unknown type of) robot in an environment consisting of 2 and 4 moving obstacles. The robot is able to move to the goal successfully in an oscillation free path without collision.
+    \item The authors mention that they are working on creating more complex strategies for the planner based on DVS\@.
+
+\end{itemize}
+
+\section{Scientific contribution}
+\begin{itemize}
+    \item Describes a robust motion planning approach along with experimental results.
+    \item Does not create an oscillatory path for the robot.
+    \item Takes care of kinematic and dynamic constraints. Does not require the robot to be circular and holonomic.
+\end{itemize}
+
+\section{Scientific deficits}
+\begin{itemize}
+    \item The preformed experiment are very simplistic and does not show the robustness against a large number of moving obstacles.
+    \item It requires a global planner.
+    \item Does not take into account the error due to sensors and actuators.
+\end{itemize}
+
+\begin{thebibliography}{1}
+    \bibitem{owen2005motion} Owen, E. \& Montano, L. ``Motion planning in dynamic environments using the velocity space'' \textit{IEEE/RSJ International Conference on Intelligent Robots and Systems} 2005.
+\end{thebibliography}
+
+\end{document}

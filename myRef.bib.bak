@@ -22,6 +22,23 @@
   Comment                  = {573}
 }
 
+@Article{5109666,
+  Title                    = {Safe Navigation of a Mobile Robot Considering Visibility of Environment},
+  Author                   = {W. Chung and S. Kim and M. Choi and J. Choi and H. Kim and C. b. Moon and J. B. Song},
+  Journal                  = {IEEE Transactions on Industrial Electronics},
+  Year                     = {2009},
+
+  Month                    = {Oct},
+  Number                   = {10},
+  Pages                    = {3941-3950},
+  Volume                   = {56},
+
+  Comment                  = {56},
+  Doi                      = {10.1109/TIE.2009.2025293},
+  ISSN                     = {0278-0046},
+  Keywords                 = {collision avoidance;mobile robots;motion control;velocity control;collision avoidance algorithms;mobile robot;motion control;path planning schemes;safe navigation scheme;speed control;Mobile robot navigation;obstacle avoidance;path planning;speed control}
+}
+
 @Article{fiorini1998motion,
   Title                    = {Motion planning in dynamic environments using velocity obstacles},
   Author                   = {Fiorini, Paolo and Shiller, Zvi},
@@ -112,7 +129,6 @@
   Organization             = {ACM},
   Pages                    = {177--187},
 
-  __markedentry            = {},
   Comment                  = {250}
 }
 
@@ -388,6 +404,19 @@ and Shiller, Zvi},
   Comment                  = {164}
 }
 
+@Article{shi2010local,
+  Title                    = {A local obstacle avoidance method for mobile robots in partially known environment},
+  Author                   = {Shi, Chaoxia and Wang, Yanqing and Yang, Jingyu},
+  Journal                  = {Robotics and Autonomous Systems},
+  Year                     = {2010},
+  Number                   = {5},
+  Pages                    = {425--434},
+  Volume                   = {58},
+
+  Comment                  = {44},
+  Publisher                = {Elsevier}
+}
+
 @InProceedings{shiller2010nonlinear,
   Title                    = {The nonlinear velocity obstacle revisited: The optimal time horizon},
   Author                   = {Shiller, Zvi and Gal, Oren and Fraichard, Thierry and others},
@@ -416,6 +445,18 @@ and Shiller, Zvi},
   Year                     = {1995},
   Pages                    = {1652--1659},
   Volume                   = {95}
+}
+
+@Article{truong2017toward,
+  Title                    = {Toward socially aware robot navigation in dynamic and crowded environments: A proactive social motion model},
+  Author                   = {Truong, Xuan-Tung and Ngo, Trung Dung},
+  Journal                  = {IEEE Transactions on Automation Science and Engineering},
+  Year                     = {2017},
+  Number                   = {4},
+  Pages                    = {1743--1760},
+  Volume                   = {14},
+
+  Publisher                = {IEEE}
 }
 
 @Article{tsubouchi1996motion,
@@ -484,5 +525,18 @@ and Shiller, Zvi},
 
   Comment                  = {197},
   Publisher                = {IEEE}
+}
+
+@Article{wu2012guaranteed,
+  Title                    = {Guaranteed infinite horizon avoidance of unpredictable, dynamically constrained obstacles},
+  Author                   = {Wu, Albert and How, Jonathan P},
+  Journal                  = {Autonomous robots},
+  Year                     = {2012},
+  Number                   = {3},
+  Pages                    = {227--242},
+  Volume                   = {32},
+
+  Comment                  = {44},
+  Publisher                = {Springer}
 }
 

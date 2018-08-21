@@ -1,0 +1,59 @@
+\begin{thebibliography}{10}
+
+\bibitem{seder2007dynamic}
+M.~Seder and I.~Petrovic, ``Dynamic window based approach to mobile robot
+  motion control in the presence of moving obstacles,'' in {\em Robotics and
+  Automation, 2007 IEEE International Conference on}, pp.~1986--1991, IEEE,
+  2007.
+
+\bibitem{fox1997dynamic}
+D.~Fox, W.~Burgard, and S.~Thrun, ``The dynamic window approach to collision
+  avoidance,'' {\em IEEE Robotics \& Automation Magazine}, vol.~4, no.~1,
+  pp.~23--33, 1997.
+
+\bibitem{brock1999high}
+O.~Brock and O.~Khatib, ``High-speed navigation using the global dynamic window
+  approach,'' in {\em Robotics and Automation, 1999. Proceedings. 1999 IEEE
+  International Conference on}, vol.~1, pp.~341--346, IEEE, 1999.
+
+\bibitem{stentz1995focused}
+A.~Stentz, ``The focused d* algorithm for real-time replanning,'' in {\em
+  International joint conference on Artificial Inelligence}, vol.~95,
+  pp.~1652--1659, 1995.
+
+\bibitem{gal2009efficient}
+O.~Gal, Z.~Shiller, and E.~Rimon, ``Efficient and safe on-line motion planning
+  in dynamic environments,'' in {\em Robotics and Automation, 2009. ICRA'09.
+  IEEE International Conference on}, pp.~88--93, IEEE, 2009.
+
+\bibitem{shiller2001motion}
+Z.~Shiller, F.~Large, and S.~Sekhavat, ``Motion planning in dynamic
+  environments: Obstacles moving along arbitrary trajectories,'' in {\em
+  Robotics and Automation, 2001. Proceedings 2001 ICRA. IEEE International
+  Conference on}, vol.~4, pp.~3716--3721, IEEE, 2001.
+
+\bibitem{fiorini1998motion}
+P.~Fiorini and Z.~Shiller, ``Motion planning in dynamic environments using
+  velocity obstacles,'' {\em The International Journal of Robotics Research},
+  vol.~17, no.~7, pp.~760--772, 1998.
+
+\bibitem{fraichard2004inevitable}
+T.~Fraichard and H.~Asama, ``Inevitable collision states—a step towards safer
+  robots?,'' {\em Advanced Robotics}, vol.~18, no.~10, pp.~1001--1024, 2004.
+
+\bibitem{owen2005motion}
+E.~Owen and L.~Montano, ``Motion planning in dynamic environments using the
+  velocity space,'' in {\em 2005 IEEE/RSJ International Conference on
+  Intelligent Robots and Systems}, pp.~2833--2838, Aug 2005.
+
+\bibitem{hsu2002randomized}
+D.~Hsu, R.~Kindel, J.-C. Latombe, and S.~Rock, ``Randomized kinodynamic motion
+  planning with moving obstacles,'' {\em The International Journal of Robotics
+  Research}, vol.~21, no.~3, pp.~233--255, 2002.
+
+\bibitem{minguez2004nearness}
+J.~Minguez and L.~Montano, ``Nearness diagram (nd) navigation: collision
+  avoidance in troublesome scenarios,'' {\em IEEE Transactions on Robotics and
+  Automation}, vol.~20, no.~1, pp.~45--59, 2004.
+
+\end{thebibliography}

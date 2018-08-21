@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: RnD_proposal_Bakaraniya.aux
+The style file: ieeetr.bst
+Database file #1: ../myRef.bib.bib
+You've used 23 entries,
+            1876 wiz_defined-function locations,
+            621 strings with 8024 characters,
+and the built_in function-call counts, 7799 in all, are:
+= -- 820
+> -- 221
+< -- 0
++ -- 82
+- -- 59
+* -- 511
+:= -- 994
+add.period$ -- 24
+call.type$ -- 23
+change.case$ -- 22
+chr.to.int$ -- 0
+cite$ -- 23
+duplicate$ -- 437
+empty$ -- 761
+format.name$ -- 59
+if$ -- 1960
+int.to.chr$ -- 0
+int.to.str$ -- 23
+missing$ -- 24
+newline$ -- 73
+num.names$ -- 23
+pop$ -- 93
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 344
+stack$ -- 0
+substring$ -- 673
+swap$ -- 207
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 81
+width$ -- 25
+write$ -- 236
