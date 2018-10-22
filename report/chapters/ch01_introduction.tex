@@ -1,0 +1,60 @@
+%!TEX root = ../report.tex
+
+\chapter{Introduction}
+
+\begin{itemize}
+\item Robot motion planning can be considered solved for static environment\cite{large2005navigation}.  
+\item As the robot does not have the perfect information about the environment, the problem is considered NP-hard\cite{keshmiri2009overview}.
+\item Motion planning in dynamic environment has a lot more application compared to one in static environment as the robot can be deployed in real environment among humans and other robots. This need is increasing since the availability of cheap and easily accessible robots.
+\end{itemize}
+
+
+\section{Motivation}
+By solving problem of motion planning in dynamic environment, we can ensure 
+\begin{itemize}
+    \item Safe environment for humans and for robots
+    \item Cost effective transportation of goods
+\end{itemize}
+Additionally, by comparing different approaches on same constraints and parameters, we can form a well informed decision regarding the best approach for a given application.
+
+
+
+\section{Challenges and Difficulties}
+
+
+
+\section{Problem Statement}
+
+\begin{itemize}
+\item Motion planning in dynamic environment needs to perform the following task
+\begin{itemize}
+    \item Reach the desired target position
+    \item Avoid static and moving obstacle
+    \item Consider actuator constraints
+    \item Consider geometry of robot
+\end{itemize}
+\item It needs to perform these tasks in \textit{fast} and \textit{efficient} manner. 
+\item The \textit{fast} nature of planner dictates that the planning of motion should be at least performed in real time for the robot to react to its environment. 
+\item An approach is \textit{efficient} if the planner
+\begin{itemize}
+    \item results in no collision
+    \item takes minimal time to reach goal position
+    \item does not require a large amount of sensor data
+    \item does not require a lot of computational resources
+\end{itemize}
+
+\item Most of the approaches have been tested on a single type of robot kinematics (mostly circular, holonomic).
+\item Most of the approaches do not even address how the objects needs to be perceived. They do not address how errors from perception and control would influence the planner's efficiency.
+\item The state of the art approaches test their methods and algorithm with different parameters such as
+    \begin{itemize}
+        \item kinematics of robot (holonomic, differential drive or car-type)
+        \item availability of map
+        \item motion of moving obstacles
+        \item accuracy of location information
+        \item amount of information available to robot about the obstacles
+    \end{itemize}
+\item This makes the task of determining the better approaches from the rest difficult and the result may be unreliable.
+\item This work will provide a brief overview of the current state of the art approaches for motion planning in time varying environment.
+\item Additionally, this work will provide a comparative evaluation on 3 approaches of motion planning tested on same parameters.
+\end{itemize}
+

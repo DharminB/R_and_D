@@ -1,0 +1,185 @@
+\begin{thebibliography}{10}
+
+\bibitem{large2005navigation}
+F.~Large, C.~Laugier, and Z.~Shiller, ``Navigation among moving obstacles using
+  the nlvo: Principles and applications to intelligent vehicles,'' {\em
+  Autonomous Robots}, vol.~19, pp.~159--171, Sep 2005.
+
+\bibitem{keshmiri2009overview}
+S.~Keshmiri and S.~Payandeh, ``An overview of mobile robotic agents motion
+  planning in dynamic environments,'' in {\em Proceedings of the 14th IASTED
+  International Conference, Robotics and Applications (RA20), MA, Boston},
+  pp.~152--159, 2009.
+
+\bibitem{mohanan2018a}
+M.~Mohanan and A.~Salgoankar, ``A survey of robotic motion planning in dynamic
+  environments,'' {\em Robotics and Autonomous Systems}, vol.~100, pp.~171 --
+  185, 2018.
+
+\bibitem{hoy2015algorithms}
+M.~Hoy, A.~S. Matveev, and A.~V. Savkin, ``Algorithms for collision-free
+  navigation of mobile robots in complex cluttered environments: a survey,''
+  {\em Robotica}, vol.~33, no.~3, p.~463–497, 2015.
+
+\bibitem{fujimura1991motion}
+K.~Fujimura, {\em Motion planning in dynamic environments}.
+\newblock Springer Science \& Business Media, 1991.
+
+\bibitem{tsubouchi1996motion}
+T.~Tsubouchi, ``Motion planning for mobile robots in a time-varying
+  environment: A survey,'' {\em Journal of Robotics and Mechatronics}, vol.~8,
+  no.~1, pp.~15--24, 1996.
+
+\bibitem{fox1997dynamic}
+D.~Fox, W.~Burgard, and S.~Thrun, ``The dynamic window approach to collision
+  avoidance,'' {\em IEEE Robotics \& Automation Magazine}, vol.~4, no.~1,
+  pp.~23--33, 1997.
+
+\bibitem{brock1999high}
+O.~Brock and O.~Khatib, ``High-speed navigation using the global dynamic window
+  approach,'' in {\em Robotics and Automation, 1999. Proceedings. 1999 IEEE
+  International Conference on}, vol.~1, pp.~341--346, IEEE, 1999.
+
+\bibitem{ogren2005convergent}
+P.~Ogren and N.~E. Leonard, ``A convergent dynamic window approach to obstacle
+  avoidance,'' {\em IEEE Transactions on Robotics}, vol.~21, no.~2,
+  pp.~188--195, 2005.
+
+\bibitem{seder2007dynamic}
+M.~Seder and I.~Petrovic, ``Dynamic window based approach to mobile robot
+  motion control in the presence of moving obstacles,'' in {\em Robotics and
+  Automation, 2007 IEEE International Conference on}, pp.~1986--1991, IEEE,
+  2007.
+
+\bibitem{chung2009safe}
+W.~Chung, S.~Kim, M.~Choi, J.~Choi, H.~Kim, C.~b.~Moon, and J.~B. Song, ``Safe
+  navigation of a mobile robot considering visibility of environment,'' {\em
+  IEEE Transactions on Industrial Electronics}, vol.~56, pp.~3941--3950, Oct
+  2009.
+
+\bibitem{fiorini1998motion}
+P.~Fiorini and Z.~Shiller, ``Motion planning in dynamic environments using
+  velocity obstacles,'' {\em The International Journal of Robotics Research},
+  vol.~17, no.~7, pp.~760--772, 1998.
+
+\bibitem{prassler2001robotics}
+E.~Prassler, J.~Scholz, and P.~Fiorini, ``A robotics wheelchair for crowded
+  public environment,'' {\em IEEE Robotics \& Automation Magazine}, vol.~8,
+  no.~1, pp.~38--45, 2001.
+
+\bibitem{shiller2001motion}
+Z.~Shiller, F.~Large, and S.~Sekhavat, ``Motion planning in dynamic
+  environments: Obstacles moving along arbitrary trajectories,'' in {\em
+  Robotics and Automation, 2001. Proceedings 2001 ICRA. IEEE International
+  Conference on}, vol.~4, pp.~3716--3721, IEEE, 2001.
+
+\bibitem{belkhouche2009reactive}
+F.~Belkhouche, ``Reactive path planning in a dynamic environment,'' {\em IEEE
+  Transactions on Robotics}, vol.~25, no.~4, pp.~902--911, 2009.
+
+\bibitem{van2008reciprocal}
+J.~Van Den~Berg, M.~Lin, and D.~Manocha, ``Reciprocal velocity obstacles for
+  real-time multi-agent navigation,'' in {\em Robotics and Automation, 2008.
+  ICRA 2008. IEEE International Conference on}, pp.~1928--1935, IEEE, 2008.
+
+\bibitem{van2011reciprocal}
+J.~Van Den~Berg, S.~J. Guy, M.~Lin, and D.~Manocha, ``Reciprocal n-body
+  collision avoidance,'' in {\em Robotics research}, pp.~3--19, Springer, 2011.
+
+\bibitem{owen2005motion}
+E.~Owen and L.~Montano, ``Motion planning in dynamic environments using the
+  velocity space,'' in {\em 2005 IEEE/RSJ International Conference on
+  Intelligent Robots and Systems}, pp.~2833--2838, Aug 2005.
+
+\bibitem{owen2006a}
+E.~Owen and L.~Montano, ``A robocentric motion planner for dynamic environments
+  using the velocity space,'' in {\em 2006 IEEE/RSJ International Conference on
+  Intelligent Robots and Systems}, pp.~4368--4374, Oct 2006.
+
+\bibitem{fraichard2004inevitable}
+T.~Fraichard and H.~Asama, ``Inevitable collision states—a step towards safer
+  robots?,'' {\em Advanced Robotics}, vol.~18, no.~10, pp.~1001--1024, 2004.
+
+\bibitem{fraichard2007short}
+T.~Fraichard, ``A short paper about motion safety,'' in {\em IEEE int. conf. on
+  robotics and automation}, 2007.
+
+\bibitem{petti2005safe}
+S.~Petti and T.~Fraichard, ``Safe motion planning in dynamic environments,'' in
+  {\em Intelligent Robots and Systems, 2005.(IROS 2005). 2005 IEEE/RSJ
+  International Conference on}, pp.~2210--2215, IEEE, 2005.
+
+\bibitem{martinez2009collision}
+L.~Martinez-Gomez and T.~Fraichard, ``Collision avoidance in dynamic
+  environments: an ics-based solution and its comparative evaluation,'' in {\em
+  Robotics and Automation, 2009. ICRA'09. IEEE International Conference on},
+  pp.~100--105, IEEE, 2009.
+
+\bibitem{martinez2008efficient}
+L.~Martinez-Gomez and T.~Fraichard, ``An efficient and generic 2d inevitable
+  collision state-checker,'' in {\em Intelligent Robots and Systems, 2008. IROS
+  2008. IEEE/RSJ International Conference on}, pp.~234--241, IEEE, 2008.
+
+\bibitem{gal2009efficient}
+O.~Gal, Z.~Shiller, and E.~Rimon, ``Efficient and safe on-line motion planning
+  in dynamic environments,'' in {\em Robotics and Automation, 2009. ICRA'09.
+  IEEE International Conference on}, pp.~88--93, IEEE, 2009.
+
+\bibitem{shiller2010nonlinear}
+Z.~Shiller, O.~Gal, T.~Fraichard, {\em et~al.}, ``The nonlinear velocity
+  obstacle revisited: The optimal time horizon,'' in {\em Workshop on
+  guaranteeing safe navigation in dynamic environments. In IEEE international
+  conference on robotics and automation}, 2010.
+
+\bibitem{althoff2010probabilistic}
+D.~Althoff, M.~Althoff, D.~Wollherr, and M.~Buss, ``Probabilistic collision
+  state checker for crowded environments,'' in {\em Robotics and Automation
+  (ICRA), 2010 IEEE International Conference on}, pp.~1492--1498, IEEE, 2010.
+
+\bibitem{althoff2012safety}
+D.~Althoff, J.~J. Kuffner, D.~Wollherr, and M.~Buss, ``Safety assessment of
+  robot trajectories for navigation in uncertain and dynamic environments,''
+  {\em Autonomous Robots}, vol.~32, no.~3, pp.~285--302, 2012.
+
+\bibitem{bouraine2012provably}
+S.~Bouraine, T.~Fraichard, and H.~Salhi, ``Provably safe navigation for mobile
+  robots with limited field-of-views in dynamic environments,'' {\em Autonomous
+  Robots}, vol.~32, no.~3, pp.~267--283, 2012.
+
+\bibitem{hernandez2015application}
+J.~Hernandez-Aceituno, L.~Acosta, and J.~D. Pineiro, ``Application of time
+  dependent probabilistic collision state checkers in highly dynamic
+  environments,'' {\em PLoS one}, vol.~10, no.~3, p.~e0119930, 2015.
+
+\bibitem{hsu2002randomized}
+D.~Hsu, R.~Kindel, J.-C. Latombe, and S.~Rock, ``Randomized kinodynamic motion
+  planning with moving obstacles,'' {\em The International Journal of Robotics
+  Research}, vol.~21, no.~3, pp.~233--255, 2002.
+
+\bibitem{van2005roadmap}
+J.~P. Van Den~Berg and M.~H. Overmars, ``Roadmap-based motion planning in
+  dynamic environments,'' {\em IEEE Transactions on Robotics}, vol.~21, no.~5,
+  pp.~885--897, 2005.
+
+\bibitem{van2006anytime}
+J.~Van Den~Berg, D.~Ferguson, and J.~Kuffner, ``Anytime path planning and
+  replanning in dynamic environments,'' in {\em Robotics and Automation, 2006.
+  ICRA 2006. Proceedings 2006 IEEE International Conference on},
+  pp.~2366--2371, IEEE, 2006.
+
+\bibitem{minguez2004nearness}
+J.~Minguez and L.~Montano, ``Nearness diagram (nd) navigation: collision
+  avoidance in troublesome scenarios,'' {\em IEEE Transactions on Robotics and
+  Automation}, vol.~20, no.~1, pp.~45--59, 2004.
+
+\bibitem{ge2002dynamic}
+S.~S. Ge and Y.~J. Cui, ``Dynamic motion planning for mobile robots using
+  potential field method,'' {\em Autonomous robots}, vol.~13, no.~3,
+  pp.~207--222, 2002.
+
+\bibitem{savkin2013simple}
+A.~V. Savkin and C.~Wang, ``A simple biologically inspired algorithm for
+  collision-free navigation of a unicycle-like robot in dynamic environments
+  with moving obstacles,'' {\em Robotica}, vol.~31, no.~6, pp.~993--1001, 2013.
+
+\end{thebibliography}

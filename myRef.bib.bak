@@ -9,6 +9,45 @@
   Year                     = {2011}
 }
 
+@Article{althoff2012safety,
+  Title                    = {Safety assessment of robot trajectories for navigation in uncertain and dynamic environments},
+  Author                   = {Althoff, Daniel and Kuffner, James J and Wollherr, Dirk and Buss, Martin},
+  Journal                  = {Autonomous Robots},
+  Year                     = {2012},
+  Number                   = {3},
+  Pages                    = {285--302},
+  Volume                   = {32},
+
+  Comment                  = {64},
+  Publisher                = {Springer}
+}
+
+@Article{belkhouche2009reactive,
+  Title                    = {Reactive path planning in a dynamic environment},
+  Author                   = {Belkhouche, Fethi},
+  Journal                  = {IEEE Transactions on Robotics},
+  Year                     = {2009},
+  Number                   = {4},
+  Pages                    = {902--911},
+  Volume                   = {25},
+
+  Comment                  = {99},
+  Publisher                = {IEEE}
+}
+
+@Article{bouraine2012provably,
+  Title                    = {Provably safe navigation for mobile robots with limited field-of-views in dynamic environments},
+  Author                   = {Bouraine, Sara and Fraichard, Thierry and Salhi, Hassen},
+  Journal                  = {Autonomous Robots},
+  Year                     = {2012},
+  Number                   = {3},
+  Pages                    = {267--283},
+  Volume                   = {32},
+
+  Comment                  = {63},
+  Publisher                = {Springer}
+}
+
 @InProceedings{brock1999high,
   Title                    = {High-speed navigation using the global dynamic window approach},
   Author                   = {Brock, Oliver and Khatib, Oussama},
@@ -22,7 +61,7 @@
   Comment                  = {573}
 }
 
-@Article{5109666,
+@Article{chung2009safe,
   Title                    = {Safe Navigation of a Mobile Robot Considering Visibility of Environment},
   Author                   = {W. Chung and S. Kim and M. Choi and J. Choi and H. Kim and C. b. Moon and J. B. Song},
   Journal                  = {IEEE Transactions on Industrial Electronics},
@@ -37,6 +76,19 @@
   Doi                      = {10.1109/TIE.2009.2025293},
   ISSN                     = {0278-0046},
   Keywords                 = {collision avoidance;mobile robots;motion control;velocity control;collision avoidance algorithms;mobile robot;motion control;path planning schemes;safe navigation scheme;speed control;Mobile robot navigation;obstacle avoidance;path planning;speed control}
+}
+
+@Article{du2012robot,
+  Title                    = {Robot motion planning in dynamic, uncertain environments},
+  Author                   = {Du Toit, Noel E and Burdick, Joel W},
+  Journal                  = {IEEE Transactions on Robotics},
+  Year                     = {2012},
+  Number                   = {1},
+  Pages                    = {101--115},
+  Volume                   = {28},
+
+  Comment                  = {167},
+  Publisher                = {IEEE}
 }
 
 @Article{fiorini1998motion,
@@ -89,6 +141,15 @@
   Publisher                = {IEEE}
 }
 
+@InProceedings{fraichard2007short,
+  Title                    = {A short paper about motion safety},
+  Author                   = {Fraichard, Thierry},
+  Booktitle                = {IEEE int. conf. on robotics and automation},
+  Year                     = {2007},
+
+  Comment                  = {137}
+}
+
 @Article{fraichard2004inevitable,
   Title                    = {Inevitable collision states—a step towards safer robots?},
   Author                   = {Fraichard, Thierry and Asama, Hajime},
@@ -121,6 +182,19 @@
   Comment                  = {40}
 }
 
+@Article{ge2002dynamic,
+  Title                    = {Dynamic motion planning for mobile robots using potential field method},
+  Author                   = {Ge, Shuzhi Sam and Cui, Yun J},
+  Journal                  = {Autonomous robots},
+  Year                     = {2002},
+  Number                   = {3},
+  Pages                    = {207--222},
+  Volume                   = {13},
+
+  Comment                  = {769},
+  Publisher                = {Springer}
+}
+
 @InProceedings{guy2009clearpath,
   Title                    = {Clearpath: highly parallel collision avoidance for multi-agent simulation},
   Author                   = {Guy, Stephen J and Chhugani, Jatin and Kim, Changkyu and Satish, Nadathur and Lin, Ming and Manocha, Dinesh and Dubey, Pradeep},
@@ -141,6 +215,7 @@
   Pages                    = {e0119930},
   Volume                   = {10},
 
+  Comment                  = {3},
   Publisher                = {Public Library of Science}
 }
 
@@ -232,6 +307,7 @@ and Shiller, Zvi},
   Pages                    = {159--171},
   Volume                   = {19},
 
+  Comment                  = {81},
   Day                      = {01},
   Doi                      = {10.1007/s10514-005-0610-8},
   ISSN                     = {1573-7527},
@@ -254,6 +330,17 @@ and Shiller, Zvi},
   Pages                    = {100--105},
 
   Comment                  = {53}
+}
+
+@InProceedings{martinez2008efficient,
+  Title                    = {An efficient and generic 2d inevitable collision state-checker},
+  Author                   = {Martinez-Gomez, Luis and Fraichard, Thierry},
+  Booktitle                = {Intelligent Robots and Systems, 2008. IROS 2008. IEEE/RSJ International Conference on},
+  Year                     = {2008},
+  Organization             = {IEEE},
+  Pages                    = {234--241},
+
+  Comment                  = {34}
 }
 
 @Article{minguez2004nearness,
@@ -342,6 +429,15 @@ and Shiller, Zvi},
   Keywords                 = {collision avoidance;mobile robots;motion control;navigation;optimisation;robot dynamics;robot kinematics;collision avoidance;dynamic constraint;dynamic environment;estimated arriving time;kinematic constraint;mobile robot navigation;motion command;moving obstacles;obstacle avoidance;optimization;potential escape;robot motion planning;static obstacles;trajectory control;velocity space;Kinematics;Mobile robots;Motion control;Motion planning;Navigation;Optimal control;Orbital robotics;Robot motion;Robot sensing systems;Velocity control;Mobile robot navigation;dynamic environments;motion planning;velocity space}
 }
 
+@InProceedings{petti2005partial,
+  Title                    = {Partial motion planning framework for reactive planning within dynamic environments},
+  Author                   = {Petti, Stephane and Fraichard, Thierry},
+  Booktitle                = {Proc. of the IFAC/AAAI Int. Conf. on Informatics in Control, Automation and Robotics},
+  Year                     = {2005},
+
+  Comment                  = {40}
+}
+
 @InProceedings{petti2005safe,
   Title                    = {Safe motion planning in dynamic environments},
   Author                   = {Petti, St{\'e}phane and Fraichard, Thierry},
@@ -392,6 +488,32 @@ and Shiller, Zvi},
   Comment                  = {54}
 }
 
+@Article{ren2008modified,
+  Title                    = {Modified Newton's method applied to potential field-based navigation for nonholonomic robots in dynamic environments},
+  Author                   = {Ren, Jing and McIsaac, Kenneth A and Patel, Rajni V},
+  Journal                  = {Robotica},
+  Year                     = {2008},
+  Number                   = {1},
+  Pages                    = {117--127},
+  Volume                   = {26},
+
+  Comment                  = {28},
+  Publisher                = {Cambridge University Press}
+}
+
+@Article{savkin2013simple,
+  Title                    = {A simple biologically inspired algorithm for collision-free navigation of a unicycle-like robot in dynamic environments with moving obstacles},
+  Author                   = {Savkin, Andrey V and Wang, Chao},
+  Journal                  = {Robotica},
+  Year                     = {2013},
+  Number                   = {6},
+  Pages                    = {993--1001},
+  Volume                   = {31},
+
+  Comment                  = {51},
+  Publisher                = {Cambridge University Press}
+}
+
 @InProceedings{seder2007dynamic,
   Title                    = {Dynamic window based approach to mobile robot motion control in the presence of moving obstacles},
   Author                   = {Seder, Marija and Petrovic, Ivan},
@@ -426,6 +548,17 @@ and Shiller, Zvi},
   Comment                  = {10}
 }
 
+@InCollection{shiller2010safe,
+  Title                    = {Safe navigation in dynamic environments},
+  Author                   = {Shiller, Zvi and Gal, Oren and Rimon, Elon},
+  Booktitle                = {ROMANSY 18 Robot Design, Dynamics and Control},
+  Publisher                = {Springer},
+  Year                     = {2010},
+  Pages                    = {225--232},
+
+  Comment                  = {4}
+}
+
 @InProceedings{shiller2001motion,
   Title                    = {Motion planning in dynamic environments: Obstacles moving along arbitrary trajectories},
   Author                   = {Shiller, Zvi and Large, Frederic and Sekhavat, Sepanta},
@@ -456,6 +589,7 @@ and Shiller, Zvi},
   Pages                    = {1743--1760},
   Volume                   = {14},
 
+  Comment                  = {5},
   Publisher                = {IEEE}
 }
 
@@ -505,6 +639,19 @@ and Shiller, Zvi},
   Comment                  = {682}
 }
 
+@Article{van2008planning,
+  Title                    = {Planning time-minimal safe paths amidst unpredictably moving obstacles},
+  Author                   = {Van Den Berg, Jur and Overmars, Mark},
+  Journal                  = {The International Journal of Robotics Research},
+  Year                     = {2008},
+  Number                   = {11-12},
+  Pages                    = {1274--1294},
+  Volume                   = {27},
+
+  Comment                  = {48},
+  Publisher                = {SAGE Publications Sage UK: London, England}
+}
+
 @PhdThesis{van2007path,
   Title                    = {Path planning in dynamic environments},
   Author                   = {Van den Berg, Jur Pieter},
@@ -525,6 +672,17 @@ and Shiller, Zvi},
 
   Comment                  = {197},
   Publisher                = {IEEE}
+}
+
+@InProceedings{wang2013collision,
+  Title                    = {A collision avoidance strategy for safe autonomous navigation of an intelligent electric-powered wheelchair in dynamic uncertain environments with moving obstacles},
+  Author                   = {Wang, Chao and Matveev, Alexey S and Savkin, Andrey V and Nguyen, Tuan Nghia and Nguyen, Hung T},
+  Booktitle                = {Control Conference (ECC), 2013 European},
+  Year                     = {2013},
+  Organization             = {IEEE},
+  Pages                    = {4382--4387},
+
+  Comment                  = {9}
 }
 
 @Article{wu2012guaranteed,

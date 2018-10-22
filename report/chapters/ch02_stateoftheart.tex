@@ -1,0 +1,201 @@
+%!TEX root = ../report.tex
+
+\chapter{State of the Art}
+
+\section{Related work}%
+\label{sec:related_work}
+
+
+This work provides a comparative study of approaches in robot motion planning in dynamic environment. This field of research cannot be considered new in any respect. There are several existing survey article:
+
+\begin{itemize}
+\item Mohanan et al.\cite{mohanan2018a} covers 101 research papers that were published between 1985 and 2016 in the field of motion planning in dynamic environment. 
+This survey is very close to the current work in terms of publication date.
+They have considered most of the work in this field and presented it in different sections on the basis of school of thought.
+Even though this work covers many approaches, the comparison is lacking. The only comparison is within a school of thought and that too is quite shallow.Additionally, the authors do not provide proper reasoning behind any of their claims and neither does their work contain any experimental study. 
+\item Hoy et al.\cite{hoy2015algorithms} provides a survey for algorithms which provide collision free navigation for robots. 
+This work is fairly detailed.
+This work cannot be considered very close to our work because it mainly covers obstacle avoidance comparison, but it does contain a section for dynamic obstacle avoidance.
+They have give quite a lot of importance of collision avoidance using boundary following.
+Even though it provides a comparison between main approaches based on numerous criterion, it still does not evaluate these approaches on a standard uniform test. They have provided their comparison solely based on the information provided by the original research papers.
+\item Keshmiri et al.\cite{keshmiri2009overview} provides a survey specifically for motion planning in dynamic environment. 
+It covers all the approaches presented in research papers published between 1986 and 2008 totalling up to 150 papers. 
+They have provided a comparison on how much contribution has been made in motion planning field based on different approach but regarding the actual approaches itself, only a summary of at most 2\-3 sentences for each approach is provided. This is quite short for readers to get a clear picture. Also, they have not performed any test on the approaches. This survey was meant for just providing a survey for contribution in different school of thought.
+\item Surveys~\cite{fujimura1991motion} and~\cite{tsubouchi1996motion} are quite dated and does not cover any state of the art approaches in motion planning for dynamic environment.
+\end{itemize}
+
+Existing approaches generally provide critique and deficiencies on their previous works. These are generally helpful for the reader at the time but they can only provide a critique on the approaches that were published before them. Additionally, their critique are generally about the problem that they have solved in their work. Therefore, though these comparisons are helpful at that time for the reader to better understand the presented work, they might not be completely useful for an unbiased comparison.
+
+\newpage{}
+\section{Motion planning approaches}%
+\label{sec:motion_planning_approaches}
+
+\subsection{Velocity based}%
+\label{sub:velocity_based}
+
+\subsubsection{Dynamic window}%
+\label{subsub:dynamic_window}
+
+\begin{itemize}
+\item Fox et al.\cite{fox1997dynamic} proposed the original idea which was simply optimizing a function which balances robot's distance from goal ($heading$), distance from nearest obstacle ($dist$) and current velocity ($vel$).  $$ G(v,w)= \sigma(\alpha \cdot  heading(v,w) +\beta \cdot dist(v,w) + \gamma \cdot vel(v,w)) $$
+    Here $\alpha$, $\beta$, $\gamma$ and $\sigma$ are constant that can be tuned according to need.
+\item This is a reactive approach, which means that the algorithms only thinks about the next iteration.
+\item It takes care of the kinematic and dynamic constraints by converting the current sensor readings in velocity space.
+\item Velocity space is a 2D space where X axis is angular velocity of the robot and Y axis is linear velocity.
+\item The robot is represented as a dot in this velocity space. The controls are bounded by the rectangle around this dot which represents the dynamic constraints of the robot.
+\item This approach, despite being robust, simple and fast did not work for dynamic environment. This method also had local minima problem.
+\item Later, Brock et al.\cite{brock1999high} extended this approach for global path planning and for dynamic environments by combining it with NF1 algorithm. This eradicated the problem of local minima. 
+\item The experiments did not contain dynamic objects.
+\item This approach is later extended by~\cite{ogren2005convergent} where they provide a version of DWA which is convergent but they only consider static environment.
+\item The current best extension of dynamic window approach (time varying dynamic window (TVDW)) was proposed by~\cite{seder2007dynamic}. This approach provides very robust obstacle avoidance method for dynamic environment.
+\item The authors have combined FD* path planning algorithm with dynamic window approach.
+\item This method uses moving cells for representing obstacles. This relieves the method from considering the shape of the obstacle.
+\item The obstacles are represented in the grid map at the location where the planner thinks they will collide. This helps the algorithm to calculate alternate trajectories efficiently.
+\item Another extension was proposed by~\cite{chung2009safe}, where they emphasise on the safety of the robot. They create a map with collision distance ($d_{collision}$) which takes into account any obstacles that are outside the field of view or occluded by other static objects. This approach provides a trajectories with longer travel time but the overall safety of the robot is far more compared to classical DW approach.
+\end{itemize}
+
+\subsubsection{Velocity obstacle}%
+\label{subsub:velocity_obstacle}
+
+\begin{itemize}
+\item Originally developed by Fiorini et al.\cite{fiorini1998motion}, this approach proposes to avoid obstacles by choosing velocity outside \textit{collision cone}.
+\item The robot and the obstacles are considered circular. The robot contains the information about the position, orientation and the velocity of the obstacle.
+\item The obstacles are believed to travel at constant velocity and same orientation.
+\item The set of relative velocity of the robot and obstacle which result in collision is termed as a collision cone. 
+\item By selecting an appropriate velocity outside the collision cone (avoidance velocity) of all the moving and static obstacles, the robot can ensure collision avoidance. Additionally, the choice of admissible velocity is restricted to the velocity allowed by the kinematic and dynamic constraints. These are called \textit{admissible avoidance velocities}.
+\item This approach unifies the representation for avoiding static and dynamic obstacles.
+\item This idea has since been transformed to incorporate many scenarios~\cite{prassler2001robotics}.
+\item One of the extensions, NLVO, was proposed by Shiller et.\ al.~\cite{shiller2001motion}. They extend the classical velocity obstacle approach that deals with obstacles moving linearly with constant velocity to propose \textit{non linear velocity obstacles} that can deal with obstacles moving on arbitrary path at constant velocity.
+\item The concept of NLVO was used very successfully in~\cite{large2005navigation}, where they successfully implemented and test their extension of NLVO on a car-like robot. They have adapted the method such that it can deal with non circular robot and obstacles. As this can be computationally expensive, they used graphics library to speed up the collision calculation.
+\item A reactive method for VO was developed in~\cite{belkhouche2009reactive}. They propose the idea of virtual plane which is obtained by transforming moving obstacles into static obstacles and transforming robot to a virtual robot. This plane is used to calculate the time to collision and collision position. By using this information, even a simple planner can be used to avoid collision. The authors state that any of the previous approaches that were used to solve static motion planning can be used here for desired outcome. They implemented and test their approach with multiple moving obstacles with acceleration.
+\item For multi robot systems, Van den berg et al.\cite{van2008reciprocal}\cite{van2011reciprocal} have extended VO approach. The agents calculates the collision cone for another agents that are on the course of collision with it and chooses an admissible avoidance velocity that makes the changes only half of what is required. As all the agents are running the same algorithm and both of them will make half the effort, they will avoid collision without communicating with each other.
+\end{itemize}
+
+\subsubsection{Velocity space}%
+\label{subsub:velocity_space}
+\begin{itemize}
+    \item An approach using velocity time space was proposed by~\cite{owen2005motion}\cite{owen2006a}. If the obstacles move with constant velocity in same direction then the collision time and distance can be calculated. This information is mapped to velocity time space. This creates a surface in this 3D space which is used to choose a velocity for the robot so that it does not collide with this obstacle. The target is also mapped to velocity space.This space was named Dynamic velocity space (DVS). Simulated experiments were performed with 3 dynamic obstacles.
+\end{itemize}
+
+
+
+\subsection{ICS based}%
+\label{sub:ics_based}
+
+\begin{itemize}
+    \item ``Inevitable collision states (ICS) are states that will end up in a collision, no matter which trajectory is followed by the robot''\cite{fraichard2004inevitable}. This formal definition and a few important ground work was provided in~\cite{fraichard2004inevitable}. This works on a state time space concept. Later,~\cite{fraichard2007short} declared that ICS is compliant with the safety criteria necessary for a robot to move safely in a dynamic environment. 
+\item These safety criteria are as follows
+    \begin{enumerate}
+        \item ``The robot should consider its own dynamics
+        \item The robot should consider the future behaviour of environment objects
+        \item The robot system should reason over an infinite time horizon''\cite{fraichard2007short}
+    \end{enumerate}
+\item A partial motion planner combined with ICS-checker was proposed in~\cite{petti2005safe}. They provide an additional property which proves that if the trajectory is collision free and the end state is not an ICS, then the whole trajectory is ICS-free. This allows them to calculate partial path and only check the final state for ICS\@. Their collision checker is rapidly exploring random tree based and only checks for braking trajectories of the robot. The algorithm was implemented on a car-like robot in simulation.
+\item Later~\cite{martinez2009collision} proposes ICS-AVOID, an ICS based collision avoidance approach. They use the ICS-checker proposed by~\cite{martinez2008efficient} and combine it with \textit{safe control kernel}. This guarantees that the sampling output will always contain at least one safe trajectory. This enables their algorithm to go from one ICS-free state to another without failure. This is later compared with state of the art approaches based on dynamic window (TVDW\cite{seder2007dynamic}) and velocity obstacle (NLVO\cite{large2005navigation}). These experiments were performed in simulation and the information about the future trajectories of the obstacles (up to a limited time horizon) were provided to each of the algorithm. The results show that when same amount of information is provided, ICS-AVOID performs far better than TVDW and quite better than NLVO\@.
+\item An on-line planner based on the concept of NLVO and ICS was proposed by~\cite{gal2009efficient}\cite{shiller2010nonlinear}. It is based on selecting an appropriate time horizon such that the robot will either pass ahead of the obstacle or stop before the obstacle. The NLVO till that carefully calculated time horizon guarantees that the robot never ends up in an ICS state. The approach was implemented on a robot in simulation and it was tested with 70 moving obstacles. 
+\item The ICS method was extended to probabilistic domain by~\cite{althoff2010probabilistic}. This method was later extended by the same authors in~\cite{althoff2012safety}. They introduce probabilistic collision state (PCS). So, instead of checking for collision, they are calculating the probability for collision. This probability is simply the minimum probability of a collision occurring by following a trajectory out of all the possible trajectory. This number determines the probability of that state being an ICS\@. The probabilities are calculated by considering the motion model of the obstacles and sampling from the probability density function of their resultant position at the end of some time interval. They have used only braking trajectories for collision checking since the infinite time horizon is infeasible. The authors have also considered collisions that occur among the obstacles excluding the robot. The authors have performed a string of experiments to check the effects of different parameters on PCS collision avoidance system on a car-like system.
+\item Since guaranteed ICS free navigation is impossible, Braking ICS was proposed\cite{bouraine2012provably}. The authors state that Braking ICS free navigation is the next best solution. Their algorithm PASSAVOID is \textit{provably passively safe} meaning that the robot will be at rest if a collision occurs. A braking ICS is a state such that no matter what braking trajectory is executed by the robot, it will still collide. They provide this algorithm under the assumption of limited field of view in an unknown dynamic environment. Simulated experiments were performed for a car like robot in the middle of 22 arbitrarily moving obstacles.
+\item An extension of PCS based navigation was developed by~\cite{hernandez2015application}. The robot constantly updates a probabilistic collision matrix based on the model of the environment. For each obstacle, sampling is done based on the previous model which considers its velocity, acceleration, direction of movement, etc. For trajectory calculation, authors have used time dependent Dijkstra algorithm. In exchange for a little higher collision probability, the authors get a huge computational speedup along with a shorter trajectory length by setting a minimum probability restriction. This means that if the collision probability of a cell is lower than a predefined threshold, then that cell is considered safe to traverse. The authors have performed extensive simulation experiments with trajectory generation with different parameters in order to explain the algorithm. For online planning, the authors have modified their algorithm so that the robot only follows the planned trajectory for certain period of time and alters the plan based on the newly available sensor data. The algorithm was tested on a real robot and pedestrians were used as obstacles. The robot was able to get from one position to another with very less collision probability.
+\end{itemize}
+
+\subsection{Roadmap based}%
+\label{sub:roadmap_based}
+
+\begin{itemize}
+    \item Probabilistic roadmap approach was proposed by~\cite{hsu2002randomized}. ``A PRM planner samples the robot’s configuration space at random and retains the collision-free samples as milestones.  It then tries to connect pairs of milestones with paths of pre-defined shape (typically straight-line segments in configuration space) and retains the collision-free connections as local paths. The result is an undirected graph, called a probabilistic roadmap, whose nodes are the milestones and the edges are the local paths''\cite{hsu2002randomized}. This is a state space based approach. The sampling is done while considering kinematic and dynamic constraints imposed by the robot. The authors proved that as the number of sample increases, the probability of finding a path increases exponentially. Their approach is mainly for path planning, but they have provided with some additional techniques like sensing error counter measure, trajectory optimization, safe mode planning and on-the-fly replanning which makes their approach quite suitable for dynamic environment. They performed experiments to prove that a robot with any shape, kinematic and dynamic constraint was able to traverse. Additionally they also experimented with moving obstacle with random trajectory.
+
+    \item An approach\cite{van2005roadmap} was proposed for motion planning in dynamic environment where the global roadmap for static obstacles is already calculated. The authors provide a local and a global planning method which uses the previously given roadmap and only considers the dynamic obstacles. The problem is thus reduced to 1D state space. The local planner only considers going from one vertex to another in the roadmap, while the global planner employs multiple \textit{probes} that individually run the local planner algorithm to find the global path. Experiments were performed for a 6 DOF robot in a 3D space in a simulation.
+    \item In~\cite{van2006anytime}, the authors propose a method to calculate and recalculate path to the goal in dynamic environment. This approach is similar to the extension from~\cite{hsu2002randomized}. The method creates an anytime plan from the current position to the goal position which is constantly updated based on the sensor information. Anytime D* algorithm is used to calculate the trajectory in state time space. Experiments were performed for a point sized robot in an simulated dynamic environment. The moving obstacles can change their direction randomly but this information is not available to the robot. The robot still only collides approx. 20\% of the time.
+\end{itemize}
+
+\subsection{Other approach}%
+\label{sub:other_approach}
+
+\subsubsection{Nearness diagram}%
+\label{ssub:nearness_diagram}
+\begin{itemize}
+    \item A reactive navigation approach was proposed in~\cite{minguez2004nearness}. They employ \textit{situated activity} paradigm. The robot chooses from a set of 5 behaviour based on the sensor information. The sensor information is like vector field histogram. The robot behaves differently when there are object on its sides compared to where it is directly aligned to the goal. This algorithm was proved to not have local minima. The authors state that the proposed method only has one parameter to be selected compared to other approaches where numerous parameters determine the behavior of the robot. Experiments were performed on a real holonomic robot in a cluttered environment.
+\end{itemize}
+
+
+\subsubsection{Potential field}%
+\label{subsub:potential_field}
+\begin{itemize}
+    \item A potential field approach for dynamic environment was proposed in~\cite{ge2002dynamic}. Here the target and obstacles are moving and they generate attractive and repulsive forces respectively. Problem of local minima was addressed. Calculations for holonomic robot and differential drive robot were provided. Experiments were performed in simulation and on real robots. 
+\end{itemize}
+
+\subsubsection{Biologically inspired}%
+\label{subsub:biologically_inspired}
+\begin{itemize}
+    \item A biologically inspired approach for differential drive robots was presented in~\cite{savkin2013simple}. Here the robot calculate the angle made by the obstacle in the field of sensing and calculates the linear and angular velocity that it must obey in order to avoid the obstacle. The robot follows two type of motion: avoidance motion and straight to goal motion. The robot switches between these modes to reach the target location. Experiments with multiple moving obstacles were performed in real and simulated environment. The approach was compared with velocity obstacle approach and the proposed method was faster to reach the target location.
+\end{itemize}
+
+\newpage
+\section{Comparison}%
+\label{sec:comparision}
+
+
+\setlength{\belowrulesep}{0ex}
+\setlength{\aboverulesep}{0ex}
+\begin{table}[htpb]
+    \centering
+\label{tab:comparision_table}
+    \begin{tabular}{|c|c||c|c|c|c|}\toprule
+        \textbf{Approach} & \textbf{Method} & \textbf{Vehicle} & \textbf{Obstacle} & \textbf{Obstacle} & \textbf{Experiment} \\
+                          &    & \textbf{type} & \textbf{restriction} & \textbf{shape} & \\\toprule
+        \multirow{5}{*}{DWA}&\cite{fox1997dynamic} & holonomic & \-- & All & real \\\cmidrule{2-6}
+                            &\cite{brock1999high}  & holonomic & \-- & All & real \\\cmidrule{2-6}
+                            &\cite{ogren2005convergent}  & holonomic & \-- & \-- & sim \\\cmidrule{2-6}
+                            &\cite{seder2007dynamic}   & holonomic & cv, vd & All & sim \\\cmidrule{2-6}
+                            &\cite{chung2009safe}  & holonomic & cv, cd & All & real \\\midrule
+        \multirow{6}{*}{VO} &\cite{fiorini1998motion}  & holonomic+ & cv, cd & circular & sim \\\cmidrule{2-6}
+                            &\cite{prassler2001robotics}  & unicycle+ & cv, cd & All & real \\\cmidrule{2-6}
+                            &\cite{shiller2001motion}  & holonomic+ & cv, vd & circular & sim \\\cmidrule{2-6}
+                            &\cite{large2005navigation}  & bicycle & cv, vd & All & sim \\\cmidrule{2-6}
+                            &\cite{belkhouche2009reactive}  & unicycle & vv, vd & circular & sim \\\cmidrule{2-6}
+                            &\cite{van2008reciprocal}  & holonomic & vv, vd & circular & sim \\\cmidrule{2-6}
+                            &\cite{van2011reciprocal}  & holonomic & vv, vd & circular & sim \\\midrule
+        \multirow{1}{*}{VS} &\cite{owen2005motion}\cite{owen2006a}  & unicycle+ & cv, cd & All & sim \\\midrule
+        \multirow{9}{*}{ICS}&\cite{petti2005safe}  & Bicycle+ & vv, vd & All & sim \\\cmidrule{2-6}
+                            &\cite{martinez2009collision}  & holonomic+ & cv, vd & circular & sim \\\cmidrule{2-6}
+                            &\cite{martinez2008efficient}  & Bicycle+ & cv, vd & circular & sim \\\cmidrule{2-6}
+                            &\cite{gal2009efficient}  & holonomic+ & cv, vd & circular & sim \\\cmidrule{2-6}
+                            &\cite{shiller2010nonlinear}  & holonomic+ & cv, vd & circular & sim \\\cmidrule{2-6}
+                            &\cite{althoff2012safety}  & Bicycle+ & vv, vd & circular & sim \\\cmidrule{2-6}
+                            &\cite{bouraine2012provably} & Bicycle+ & vv, vd & All & sim \\\cmidrule{2-6}
+                            &\cite{hernandez2015application}  & Unicycle+ & vv, vd & All & sim, real \\\midrule
+        \multirow{3}{*}{Roadmap} &\cite{hsu2002randomized}  & All & vv, vd & All & sim, real \\\cmidrule{2-6}
+                            &\cite{van2005roadmap}  & All & \-- & circular & sim \\\cmidrule{2-6}
+                            &\cite{van2006anytime}  & All & cv, vd & circular & sim \\\midrule
+                            &\cite{minguez2004nearness}  & holonomic & \-- & All & real \\\cmidrule{2-6}
+                            &\cite{ge2002dynamic}  & holonomic, unicycle & cv, cd & All & sim, real \\\cmidrule{2-6}
+                            &\cite{savkin2013simple}  & unicycle & cv, cd & All & sim, real \\\midrule
+                            %&\cite{}  &  &  &  &  \\\cmidrule{2-6}
+    \end{tabular}
+    \Caption{Comparison of some of the state of the art approaches for motion planning in dynamic environment\\
+    +: can be applied theoretically to any vehicle type\\
+    cv: constant velocity, vv: varying velocity\\
+    cd: constant direction, vd: varying direction\\
+    sim: experiments performed in simulation\\
+    real: experiments performed on an actual robot\\
+    (Note: The experiments might have relaxed some assumptions taken for theoretical approach. The \textit{Obstacle restriction} and \textit{Obstacle shape} information is based on the information provided from experimental setup. If a literature provides multiple experiments with different relaxed assumption, then we consider the assumption which is most resembles the theory.)
+    }
+\end{table}
+
+\begin{itemize}
+    \item There are different criteria for comparing approaches in the field of motion planning  in dynamic environment.
+    \item Apart from avoiding collision, the algorithms generally have at least one additional goal (generally reaching target in minimal time).
+    \item This target position is generally provided to the robot as problem statement, though the target may not be in line of sight. In this case, the robot must plan a path from its current position to the target location. For this task, it will need a map of the environment. 
+    \item The approaches discussed above have different assumptions regarding this parameter of the experiment. While~\cite{brock1999high},\cite{ogren2005convergent},\cite{seder2007dynamic},\cite{chung2009safe},\cite{petti2005safe},\cite{hsu2002randomized},\cite{van2006anytime},\cite{ge2002dynamic} provide global connection to the goal, most of the approaches do not. They can, however, be extended by combining with a global path planner that provides checkpoints which in line of sight of the robot.
+    \item Some approaches are only applicable to certain vehicle model types while most of them are applicable to every vehicle type.
+    \item There are mainly 3 types of robot models, namely holonomic (can instantaneously move in any direction), unicycle (can move instantaneously in the direction it is facing and can turn instantaneously with certain angular acceleration) and bicycle (can instantaneously move in the direction it is facing and can turn within certain angle depending on the linear velocity)\cite{hoy2015algorithms}.
+    \item Naturally, an approach which can be applied to all types of robot model is desirable. Though, in indoor environments, bicycle type robots might not be very useful because of their high turning radius. This makes them less maneuverable in narrow and cluttered spaces.
+    \item Roadmap and ICS based approaches are not dependent on the model of the robot as they plan in state time space of the robot. This automatically takes care of kinodynamic constraints during planning phase.
+    \item As stated before, for a robot motion planner must consider it own dynamic\cite{fraichard2007short}. Most of the methods discussed above consider kinodynamic constraints.
+    \item When the experiments are performed in a simulated environment, the information about the position and velocity vector of the obstacles as well as the position and heading of the robot are easily available. But, in real environment, these information is erroneous/uncertain in nature. The approaches which take this uncertainty into account are clearly more desirable. 
+    \item This is one of the only reason why ICS based approaches are not declared as the obvious choice. Even though they have the capability to reason over infinite time, they need perfect information about the environment to guarantee safety. On the opposite end of the spectrum are reactive approaches, which only reason about next iteration. What they lack in planning long term decision, they try to make it up on the frontier of lack of information.
+    \item The approaches which are applicable in the environment where the obstacles are moving at variable velocity and in variable direction are more desirable because it resembles more closely to the real world. In real environment, a human might slow down to talk to someone or accelerate to overtake other people. All the state time space based approaches can theoretically deal with this constraint.
+    \item Some approaches assume only circular obstacles for the ease of calculation or for the experiments, but most of the approaches can be extended to consider non circular moving obstacles by considering more than one circle for an obstacle\cite{large2005navigation}. Theoretically, all state time space based approaches can deal with obstacles of any shape.
+    \item Clearly, state time space based approaches are better choice if the information about the environment is fairly accurate as they can deal with any robot model travelling in environment with obstacles of any shape travelling in variable direction at variable velocity. The possible problem might be the computation time required for them to plan a path in state time space after gathering the information.
+\end{itemize}
+
