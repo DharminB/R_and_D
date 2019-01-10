@@ -9,6 +9,17 @@
   Year                     = {2011}
 }
 
+@InProceedings{althoff2010probabilistic,
+  Title                    = {Probabilistic collision state checker for crowded environments},
+  Author                   = {Althoff, Daniel and Althoff, Matthias and Wollherr, Dirk and Buss, Martin},
+  Booktitle                = {Robotics and Automation (ICRA), 2010 IEEE International Conference on},
+  Year                     = {2010},
+  Organization             = {IEEE},
+  Pages                    = {1492--1498},
+
+  Comment                  = {37}
+}
+
 @Article{althoff2012safety,
   Title                    = {Safety assessment of robot trajectories for navigation in uncertain and dynamic environments},
   Author                   = {Althoff, Daniel and Kuffner, James J and Wollherr, Dirk and Buss, Martin},
@@ -35,6 +46,17 @@
   Publisher                = {IEEE}
 }
 
+@InProceedings{bischoff2011kuka,
+  Title                    = {Kuka youbot-a mobile manipulator for research and education},
+  Author                   = {Bischoff, Rainer and Huggenberger, Ulrich and Prassler, Erwin},
+  Booktitle                = {Robotics and Automation (ICRA), 2011 IEEE International Conference on},
+  Year                     = {2011},
+  Organization             = {IEEE},
+  Pages                    = {1--4},
+
+  Comment                  = {110}
+}
+
 @Article{bouraine2012provably,
   Title                    = {Provably safe navigation for mobile robots with limited field-of-views in dynamic environments},
   Author                   = {Bouraine, Sara and Fraichard, Thierry and Salhi, Hassen},
@@ -59,6 +81,15 @@
 
   __markedentry            = {[dharmin:1]},
   Comment                  = {573}
+}
+
+@Electronic{eband,
+  Title                    = {EBand local planner},
+  Author                   = {Christian, Connette and Bhaskara, Marthi and Piyush, Khandelwal},
+  HowPublished             = {\url{http://wiki.ros.org/eband_local_planner}},
+  Url                      = {http://wiki.ros.org/eband_local_planner},
+
+  Timestamp                = {2019.01.10}
 }
 
 @Article{chung2009safe,
@@ -281,6 +312,18 @@
   Comment                  = {68}
 }
 
+@InProceedings{koenig2004design,
+  Title                    = {Design and use paradigms for Gazebo, an open-source multi-robot simulator.},
+  Author                   = {Koenig, Nathan P and Howard, Andrew},
+  Booktitle                = {IROS},
+  Year                     = {2004},
+  Organization             = {Citeseer},
+  Pages                    = {2149--2154},
+  Volume                   = {4},
+
+  Comment                  = {1195}
+}
+
 @Article{lamiraux2004reactive,
   Title                    = {Reactive path deformation for nonholonomic mobile robots},
   Author                   = {Lamiraux, Florent and Bonnafous, David and Lefebvre, Olivier},
@@ -321,6 +364,46 @@ and Shiller, Zvi},
   Year                     = {1990}
 }
 
+@Article{loock2015b,
+  Title                    = {B-spline parameterized optimal motion trajectories for robotic systems with guaranteed constraint satisfaction},
+  Author                   = {Loock, W Van and Pipeleers, Goele and Swevers, Jan},
+  Journal                  = {Mechanical Sciences},
+  Year                     = {2015},
+  Number                   = {2},
+  Pages                    = {163--171},
+  Volume                   = {6},
+
+  Comment                  = {17},
+  Publisher                = {Copernicus GmbH}
+}
+
+@Electronic{dwa,
+  Title                    = {DWA local planner},
+  Author                   = {Eitan Marder-Eppstein},
+  HowPublished             = {\url{http://wiki.ros.org/dwa_local_planner}},
+  Url                      = {http://wiki.ros.org/dwa_local_planner},
+
+  Timestamp                = {2019.01.10}
+}
+
+@Electronic{rosnavigation,
+  Title                    = {ROS Navigation},
+  Author                   = {Eitan Marder-Eppstein},
+  HowPublished             = {\url{http://wiki.ros.org/navigation}},
+  Url                      = {http://wiki.ros.org/navigation},
+
+  Timestamp                = {2019.01.09}
+}
+
+@Electronic{costmap,
+  Title                    = {Costmap 2D},
+  Author                   = {Eitan Marder-Eppstein and David V. Lu and Dave Hershberger},
+  HowPublished             = {\url{http://wiki.ros.org/costmap_2d\#Rate_parameters}},
+  Url                      = {http://wiki.ros.org/costmap_2d#Rate_parameters},
+
+  Timestamp                = {2019.01.10}
+}
+
 @InProceedings{martinez2009collision,
   Title                    = {Collision avoidance in dynamic environments: an ics-based solution and its comparative evaluation},
   Author                   = {Martinez-Gomez, Luis and Fraichard, Thierry},
@@ -341,6 +424,27 @@ and Shiller, Zvi},
   Pages                    = {234--241},
 
   Comment                  = {34}
+}
+
+@InProceedings{mercy2016real,
+  Title                    = {Real-time motion planning in the presence of moving obstacles},
+  Author                   = {Mercy, Tim and Van Loock, Wannes and Pipeleers, Goele},
+  Booktitle                = {Control Conference (ECC), 2016 European},
+  Year                     = {2016},
+  Organization             = {IEEE},
+  Pages                    = {1586--1591},
+
+  Comment                  = {9}
+}
+
+@Article{mercy2017spline,
+  Title                    = {Spline-based motion planning for autonomous guided vehicles in a dynamic environment},
+  Author                   = {Mercy, Tim and Van Parys, Ruben and Pipeleers, Goele},
+  Journal                  = {IEEE Transactions on Control Systems Technology},
+  Year                     = {2017},
+
+  Comment                  = {13},
+  Publisher                = {IEEE}
 }
 
 @Article{minguez2004nearness,
@@ -488,6 +592,30 @@ and Shiller, Zvi},
   Comment                  = {54}
 }
 
+@InProceedings{quigley2009ros,
+  Title                    = {ROS: an open-source Robot Operating System},
+  Author                   = {Quigley, Morgan and Conley, Ken and Gerkey, Brian and Faust, Josh and Foote, Tully and Leibs, Jeremy and Wheeler, Rob and Ng, Andrew Y},
+  Booktitle                = {ICRA workshop on open source software},
+  Year                     = {2009},
+  Number                   = {3.2},
+  Organization             = {Kobe, Japan},
+  Pages                    = {5},
+  Volume                   = {3},
+
+  Comment                  = {5144}
+}
+
+@InProceedings{quinlan1993elastic,
+  Title                    = {Elastic bands: Connecting path planning and control},
+  Author                   = {Quinlan, Sean and Khatib, Oussama},
+  Booktitle                = {Robotics and Automation, 1993. Proceedings., 1993 IEEE International Conference on},
+  Year                     = {1993},
+  Organization             = {IEEE},
+  Pages                    = {802--807},
+
+  Comment                  = {725}
+}
+
 @Article{ren2008modified,
   Title                    = {Modified Newton's method applied to potential field-based navigation for nonholonomic robots in dynamic environments},
   Author                   = {Ren, Jing and McIsaac, Kenneth A and Patel, Rajni V},
@@ -499,6 +627,28 @@ and Shiller, Zvi},
 
   Comment                  = {28},
   Publisher                = {Cambridge University Press}
+}
+
+@InProceedings{rosmann2013efficient,
+  Title                    = {Efficient trajectory optimization using a sparse model},
+  Author                   = {Rosmann, Christoph and Feiten, Wendelin and Wosch, Thomas and Hoffmann, Frank and Bertram, Torsten},
+  Booktitle                = {Mobile Robots (ECMR), 2013 European Conference on},
+  Year                     = {2013},
+  Organization             = {IEEE},
+  Pages                    = {138--143},
+
+  Comment                  = {29}
+}
+
+@InProceedings{rosmann2015planning,
+  Title                    = {Planning of multiple robot trajectories in distinctive topologies},
+  Author                   = {Rosmann, Christoph and Hoffmann, Frank and Bertram, Torsten},
+  Booktitle                = {Mobile Robots (ECMR), 2015 European Conference on},
+  Year                     = {2015},
+  Organization             = {IEEE},
+  Pages                    = {1--6},
+
+  Comment                  = {14}
 }
 
 @Article{savkin2013simple,
@@ -696,5 +846,45 @@ and Shiller, Zvi},
 
   Comment                  = {44},
   Publisher                = {Springer}
+}
+
+@Electronic{animatedBox,
+  Title                    = {Animated Box},
+  HowPublished             = {\url{http://gazebosim.org/tutorials?cat=build_robot&tut=animated_box}},
+  Url                      = {http://gazebosim.org/tutorials?cat=build_robot&tut=animated_box},
+
+  Timestamp                = {2019.01.09}
+}
+
+@Electronic{movingObstacleGazebo,
+  Title                    = {Moving obstacle gazebo plugins},
+  HowPublished             = {\url{https://github.com/DharminB/moving_obstacle_gazebo}},
+  Url                      = {https://github.com/DharminB/moving_obstacle_gazebo},
+
+  Timestamp                = {2019.01.09}
+}
+
+@Electronic{omgTools,
+  Title                    = {omg-tools},
+  HowPublished             = {\url{https://github.com/meco-group/omg-tools}},
+  Url                      = {https://github.com/meco-group/omg-tools},
+
+  Timestamp                = {2019.01.09}
+}
+
+@Electronic{p3dxMotionplanner,
+  Title                    = {ROS compatible omg-tools motion planner},
+  HowPublished             = {\url{https://github.com/DharminB/p3dx_motionplanner}},
+  Url                      = {https://github.com/DharminB/p3dx_motionplanner},
+
+  Timestamp                = {2019.01.09}
+}
+
+@Electronic{tebLocalPlanner,
+  Title                    = {TEB Local Planner},
+  HowPublished             = {\url{http://wiki.ros.org/teb_local_planner}},
+  Url                      = {http://wiki.ros.org/teb_local_planner},
+
+  Timestamp                = {2019.01.09}
 }
 
