@@ -57,6 +57,8 @@
 \usepackage{geometry}
 \usepackage{multirow}
 \usepackage{hyperref}
+\usepackage{caption, subcaption}
+\usepackage{float}
 % \usepackage{showframe}
 
 

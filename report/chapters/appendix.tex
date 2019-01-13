@@ -1,6 +1,96 @@
 %!TEX root = ../report.tex
-\chapter{Design Details}
-Your first appendix
-
 \chapter{Parameters}
-Your second chapter appendix
+\label{appendix_parameters}
+
+\section{Kinodynamic parameters}%
+\label{sec:kinodynamic_parameters}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cc}
+        \textbf{Parameter} & \textbf{Value} \\\toprule
+        max X velocity & 0.6 m/s \\
+        max Y velocity & 0.4 m/s \\
+        max angular velocity & 0.75 rad/s \\
+        max X acceleration & 2.0 m/s$^2$ \\
+        max Y acceleration & 2.0 m/s$^2$ \\
+        max angular acceleration & 1.0 rad/s$^2$\\
+        min turning radius & 0.0 m \\
+    \end{tabular}
+    \caption{kinodynamic parameters}\label{tab:kinodynamic_parameters}
+\end{table}
+
+
+\section{Goal tolerance parameters}%
+\label{sec:goal_tolerance_parameters}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cc}
+        \textbf{Parameter} & \textbf{Value} \\\toprule
+        xy goal tolerance & 0.1 m \\
+        yaw goal tolerance & 0.1 rad \\
+    \end{tabular}
+    \caption{Goal tolerance parameters}\label{tab:goa_tolerance_parameters}
+\end{table}
+
+\section{Machine specifications}%
+\label{sec:machine_specifications}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cc}
+    \textbf{Parameter} & \textbf{Value} \\\toprule
+    CPU & Intel (R) Core (TM) i5--4200U CPU @ 1.60GHz \\
+    RAM & 8 GiB \\
+    \end{tabular}
+    \caption{Machine specifications}\label{tab:machine_specifications}
+\end{table}
+
+\section{Costmap parameters}%
+\label{sec:costmap_parameters}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cc}
+    \textbf{Parameter} & \textbf{Value} \\\toprule
+    transform tolerance & 0.4\\
+    obstacle range & 2.5\\
+    raytrace range & 4.0\\
+    inflation radius & 0.5\\
+    \end{tabular}
+    \caption{costmap common parameters}\label{tab:costmap_common}
+\end{table}
+
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cc}
+    \textbf{Parameter} & \textbf{Value} \\\toprule
+    global frame & /map\\
+    robot base frame & base footprint\\
+    update frequency & 3.0\\
+    publish frequency & 3.0\\
+    static map & true\\
+    \end{tabular}
+    \caption{Costmap global parameters}\label{tab:costmap_global}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cc}
+    \textbf{Parameter} & \textbf{Value} \\\toprule
+    global frame & map\\
+    robot base frame & base footprint\\
+    update frequency & 5.0\\
+    publish frequency & 5.0\\
+    static map & false\\
+    rolling window & true\\
+    width & 2.5\\
+    height & 2.5\\
+    resolution & 0.04\\
+    origin x & 0.0\\
+    origin y & 0.0\\
+    \end{tabular}
+    \caption{Costmap local parameters}\label{tab:costmap_local}
+\end{table}

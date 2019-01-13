@@ -3,9 +3,36 @@
 \chapter{Conclusions}
 
 \section{Contributions}
-
+\label{sec:contributions}
+We compared some of the state of the art approaches in motion planning in dynamic environment.
+We setup a experiment and test criteria to compare motion planners in dynamic environment.
+We compare 5 motion planners in 3 test cases with increasing complexity in gazebo simulator.
+We analysed a better motion planner out of the 5 based on the test criteria set earlier.
+We provide software for easily modifying a ROS navigation code base for static environment to
+one for static and dynamic environment.
 
 \section{Lessons learned}
-
+\label{sec:lessons_learned}
+A motion planner which uses information about moving obstacles directly performs better
+than a motion planner which learn that information indirectly. 
+A mathematical simulation with circular robots, circular obstacles and robot fed with
+all true values along with perfect controller tests motion planning
+algorithm less robustly than a simulation which uses real robot models. 
+A motion planner written in python programming language is much slower than a motion planner
+binary compiled from C++ source code. We observe that the gazebo simulation runs at 40 to 50\% speed of real time
+when spline based planner\cite{omgtools} planner is used whereas ROS navigation
+planners\cite{dwa, tebLocalPlanner, eband}  enables gazebo
+to run at 70 to 80\% speed of real time.
 
 \section{Future work}
+\label{sec:future_work}
+Using perception techniques to gather information about the moving obstacles rather than
+gaining it from simulator would provide a comparison for more realistic world.
+Comparing motion planners on real robot with humans as moving obstacles would be the next step to 
+compare motion planners.
+Comparing planners for different robot models with different kinematic and dynamic constraints would
+give a better idea about a more general and robust motion planner.
+Trying variable amount of \texttt{lookahead\_time} for \texttt{obs\_to\_costmap} for static motion planners
+and comparing them with dynamic motion planner.
+Finally, combining and creating a motion planner by learning from the results of the comparison, might
+provide best results.
