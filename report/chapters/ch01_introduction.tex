@@ -3,7 +3,7 @@
 \chapter{Introduction}
 
 Motion planning in dynamic environment for planar mobile robots has a lot more application compared to one in static 
-environment as the robot can be deployed in real environment among humans and other robots. 
+environment because the robot can be deployed in real environment among humans and other robots. 
 The robot does not need to be in its own special and controlled environment. The robot can be 
 used in day to day life of an average person (for example, automated taxi or public transport).
 A mobile robot which can navigate in dynamic environment is extremely useful for industries to 
@@ -19,7 +19,7 @@ rather than finding solutions for solved problems.
 By solving problem of motion planning in dynamic environment, we can ensure 
 \begin{itemize}
     \item Safe environment for humans and for robots
-    \item Cost effective transportation of goods (and people\cite{prassler2001robotics})
+    \item Cost effective transportation of goods
 \end{itemize}
 
 
@@ -34,7 +34,7 @@ Simple put, motion planner needs to generate a plan that
 enables the robot to reach the desired target position while avoiding static and moving obstacle in minimum time.
 Additionally, the planner should satisfy kinematic and dynamic constraints of the robot.
 The planner needs to be fast enough that the robot can react to its environment in real time.
-It is desirable that these tasks are performed in \textit{efficient} manner. By efficient, we mean 
+It is desirable (but not required) that these tasks are performed in \textit{efficient} manner. By efficient, we mean 
 the planner does not require lot of sensor data or lots of computational resources.
 
 The state of the art approaches test their methods and algorithm with different parameters such as
@@ -47,8 +47,7 @@ The state of the art approaches test their methods and algorithm with different 
         \item accuracy of localisation of robot
         \item amount of information available to robot about the obstacles (shape, position and velocity)
     \end{itemize}
-This makes the task of determining the better approaches from the rest difficult and the 
-    result may be unreliable.
+This makes the task of determining the better approaches difficult and the result may be unreliable.
 
 
 
@@ -67,7 +66,9 @@ the following reasons
 After eliminating all the approaches which are not applicable, we still have a number of approaches
 which are tested on different robot under different assumptions (as mentioned in~\ref{sec:challenges_and_difficulties}).
 A comparative evaluation of the implementation of these approaches under specific assumption is 
-needed to find out the best approach. To compare the performance of the tested algorithm, we choose
+needed to find out the best approach. Depending on the application of the mobile robot, a performance
+measure is needed. We try to find an approach for a mobile robot navigating in indoor dynamic environments.
+Therefore, to compare the performance of the tested algorithm, we choose
 travel time, number of re-plan attempts and number of collisions as measurements for a better motion
 planner for dynamic environment.
 

@@ -4,7 +4,8 @@
 
 \section{Kinodynamic parameters}%
 \label{sec:kinodynamic_parameters}
-
+Parameters shown in Table~\ref{tab:kinodynamic_parameters} are the kinematic and dynamic constraints
+applied to the robot by all planners.
 \begin{table}[H]
     \centering
     \begin{tabular}{cc}
@@ -14,7 +15,7 @@
         max angular velocity & 0.75 rad/s \\
         max X acceleration & 2.0 m/s$^2$ \\
         max Y acceleration & 2.0 m/s$^2$ \\
-        max angular acceleration & 1.0 rad/s$^2$\\
+        max angular acceleration & 2.0 rad/s$^2$\\
         min turning radius & 0.0 m \\
     \end{tabular}
     \caption{kinodynamic parameters}\label{tab:kinodynamic_parameters}
@@ -55,7 +56,7 @@
     \begin{tabular}{cc}
     \textbf{Parameter} & \textbf{Value} \\\toprule
     transform tolerance & 0.4\\
-    obstacle range & 2.5\\
+    obstacle range & 6.5\\
     raytrace range & 4.0\\
     inflation radius & 0.5\\
     \end{tabular}
@@ -67,7 +68,7 @@
     \centering
     \begin{tabular}{cc}
     \textbf{Parameter} & \textbf{Value} \\\toprule
-    global frame & /map\\
+    global frame & map\\
     robot base frame & base footprint\\
     update frequency & 3.0\\
     publish frequency & 3.0\\
@@ -94,3 +95,11 @@
     \end{tabular}
     \caption{Costmap local parameters}\label{tab:costmap_local}
 \end{table}
+
+
+\chapter{Attached files}
+\label{attached_files}
+
+The code used for the simulation and testing the motion planner is included in the CD submitted with
+this report. The images for the execution of all motion planners tested on all test cases can also 
+be found in that CD\@.

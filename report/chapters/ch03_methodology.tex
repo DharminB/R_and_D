@@ -19,21 +19,31 @@ The experiment is performed multiple times and each time following things are me
 \end{itemize}
 All these values are expected to be minimum for a better planner.
 
-Re-plan attempts signify how well does a planner considers the information it receives. According to
+Re-plan attempts signify how well a planner considers the information it receives. According to
 the safety criteria in~\cite{fraichard2007short}, a planner should take into account the future behaviour
 of its environment and make decision accordingly. This implies that an ideal planner will only have
 to plan once. The equivalent of this in real scenario is that a planner will update its plan at 
 regular interval but it is never forced to completely re-plan because the previous plan was no longer 
 viable. Thus, lower re-plan count is more desirable. 
 
+Travel time also needs to be as low as possible. All the planners are configured to minimise time.
+Another possibility is to minimise the travel distance. The difference in behaviour will be that 
+when the robot encounters a moving obstacle that is blocking its path, the planner will try to pass
+the obstacles rather than wait for obstacles to clear its way. For indoor applications, the planner
+does not need to worry about the distance. However, for outdoor applications, minimising travel
+distance might be desirable.
+
 \section{Setup}
 \label{sec:setup}
 
-KUKA youbot\cite{bischoff2011kuka} is used which uses ROS\cite{quigley2009ros}. It is a 
-omni-directional robot which is steered as holonomic robot for the experiments 
-(Refer~\ref{sec:kinodynamic_parameters} for parameters). 
-A gazebo simulator\cite{koenig2004design} is used for simulating the desired environment.
-(Refer~\ref{sec:machine_specifications} for machine specifications)
+A gazebo simulator\cite{koenig2004design} is used for simulating the desired environment on a laptop
+machine (Refer~\ref{sec:machine_specifications} for machine specifications).
+KUKA youbot\cite{bischoff2011kuka} is used as the robot model. The robot is operated using ROS\cite{quigley2009ros}. It is an
+omni-directional robot which is steered as holonomic vehicle for the experiments 
+(Refer~\ref{sec:kinodynamic_parameters} for parameters). It is equipped with 2 laser range finders
+which are placed in the front and back of the robot. The laser range finder have a field of view of
+190$^o$. These can be used to localise the robot or update costmap\cite{costmap}. However, they create
+a blind spot in the robot's field of view (on either side of the robot).
 
 Global planner\cite{globalPlanner} is used from ROS navigation\cite{rosnavigation} if required. 
 A planner is free to use AMCL\cite{amcl} or truth value directly from simulator to get the
@@ -51,11 +61,10 @@ We run the planner multiple times to be unbiased against the position of moving 
 at start time.
 Additionally, we also run the planner in static environment to obtain a benchmark.
 All obstacles are cylinders of diameter 30 cm and height 50 cm. None of the obstacles move 
-faster than 0.4 m/s. All obstacles follow to and fro motion. The obstacles have 
+faster than 0.4 m/s. All obstacles follow a `to and fro' motion. The obstacles have 
 linear acceleration and deceleration. This implies that their velocity is constantly changing as shown
 in Figure~\ref{fig:moving_obs_velocity_plots}.
 
-\newpage{}
 \section{Test case 1: Single obstacle single room}%
 \label{sec:test_case_1_single_obstacle_single_room}
     This test case is similar to the classic road crossing benchmark\cite{van2008reciprocal}. The goal 
@@ -88,9 +97,9 @@ in Figure~\ref{fig:moving_obs_velocity_plots}.
     The goal is still in line of sight of the robot. This test case is a logical extension of
     the previous test case. There are 2 obstacles between the robot and the goal. The difficulty
     is almost double because the opening for the robot is always less than 1.7 meters. This is 
-    because the obstacles are offset by 50\% as shown in Figure~\ref{fig:two_obstacle_single_room}.
+    because the obstacles are offset by 50\% of their journey as shown in Figure~\ref{fig:two_obstacle_single_room}.
     The initial and goal positions are same as test case 1. The second obstacle (the obstacle moving 
-    diagonally) slows down near origin to coordinate with the offset. This can be seen in Figure~\ref{fig:third_obs_velocity_plot}.
+    diagonally) slows down near origin to coordinate with the offset. This can be seen in Figure~\ref{fig:second_obs_velocity_plot}.
 \begin{figure}[H]
     \centering
     \begin{subfigure}[b]{0.50\linewidth}

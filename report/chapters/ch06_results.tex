@@ -17,18 +17,18 @@ in Table~\ref{tab:avg_time_planner_comp}.
     \begin{tabular}{cccccc}\toprule
         \textbf{Planner} & \textbf{Static} & \textbf{Test case} & \textbf{Test case} & \textbf{Static} & \textbf{Test case} \\
                          & \textbf{single room} & \textbf{1} & \textbf{2} & \textbf{double room}       & \textbf{3} \\\toprule
-        \textbf{TEB         } & \textbf{5.205}  & 5.972  & 6.083  & \textbf{27.139} & \textbf{32.578} \\
+        \textbf{TEB         } & \textbf{5.205}  & 5.972  & 6.083  & \textbf{27.139} & \textbf{35.330} \\
         \textbf{Spline based} & 5.421  & \textbf{5.574}  & \textbf{5.819}  & \--    & \--    \\
-        \textbf{DWA         } & 19.526 & 17.625 & 17.114 & 39.004 & 44.329 \\
-        \textbf{EBand       } & 6.270  & 6.570  & 6.240  & 30.862 & 74.395 \\
-        \textbf{EBand2      } & 6.270  & 6.025  & 6.234  & 30.862 & 55.674 \\
+        \textbf{DWA         } & 19.526 & 17.625 & 17.114 & 39.004 & \-- \\
+        \textbf{EBand       } & 6.270  & 6.570  & 6.240  & 30.862 & 71.968 \\
+        \textbf{EBand2      } & 6.270  & 6.025  & 6.234  & 30.862 & \-- \\
         \bottomrule
     \end{tabular}
     \caption{Average time of travel for planners for different test cases}\label{tab:avg_time_planner_comp}
 \end{table}
 
 All planners are able to traverse in test case 1 in almost
-same time as their static environment counterpart (static single room). However, the planners take a 
+same time as their static environment counterpart (static single room). However, some planners take a 
 significant amount of additional time for test case 2 and 3 than its static counterpart (static 
 single room and static double room respectively). For test case 2, this can be attributed to the 
 increase in number of obstacles compared to test case 1. For test case 3, there are 2 main reasons
@@ -43,14 +43,14 @@ near the goal quite fast (as fast as other planners) but it then takes a lot of 
 exact goal in exact orientation. This can be seen in Figure~\ref{fig:dwa_test_case_exp_1}. The robot
 is in the vicinity of the goal at \texttt{t=6.67s} but the total travel time is still 20 seconds.
 
-EBand2 planner is slightly faster than EBand planner in test case 1 and 2. But the difference in 
-their time is significantly large in test case 3. We expected the travel time to increase as mentioned
-in~\ref{sub:eband2_local_planner}. The results are opposite in terms of travel time. This could be 
+EBand2 planner is slightly faster than EBand planner in test case 1 and 2. We expected the travel time to increase as mentioned
+in~\ref{sub:eband2_local_planner}. The results are opposite in terms of travel time. This is
 because EBand2 planner has more information about the moving obstacle than Eband planner. This 
 information is velocity of the moving obstacle (implicitly calculated by \texttt{obs\_to\_costmap}).
 This allows EBand2 planner to take better decisions compared to EBand planner. Eband2 chooses safer
 but longer trajectory whereas EBand chooses faster trajectory but after a small duration it finds out
-that the trajectory is no longer possible and it is force to wait for a short amount of time. 
+that the trajectory is no longer possible and it is force to wait for a short amount of time. However,
+EBand planner has advantage for narrow corridors and cramped spaces because it only uses present information.
 
 Spline based planner performs best in terms of travel time for test case 1 and 2. TEB planner performs
 best in test case 3. If the spline based planner is correctly merged with a global planner, we believe
@@ -66,18 +66,18 @@ Number of re-plan attempts signify how well the planner processes environment in
 We take the maximum of re-plan attempt of all experiments (Table~\ref{tab:max_re-plan_planner_comp}).
 This provides the worst case scenario of 
 a test case for that planner. The re-plan attempts are dependent on the initial position of the moving
-obstacle. Taking the worst case scenario eliminates the dependency for unbiased comparison.
+obstacle. Taking the worst case scenario eliminates the dependency on that parameter for an unbiased comparison.
 
 \begin{table}[H]
     \centering
     \begin{tabular}{cccccc}\toprule
         \textbf{Planner} & \textbf{Static} & \textbf{Test case} & \textbf{Test case} & \textbf{Static} & \textbf{Test case} \\
                          & \textbf{single room} & \textbf{1} & \textbf{2} & \textbf{double room}       & \textbf{3} \\\toprule
-        \textbf{TEB         } & 0 & 0 & 1 & 0 & 3 \\
+        \textbf{TEB         } & 0 & 0 & 1 & 0 & 4 \\
         \textbf{Spline based} & 0 & 0 & 0 & Fail & Fail \\
         \textbf{DWA         } & 0 & 0 & 2 & 0 & Fail \\
-        \textbf{EBand       } & 0 & 1 & Fail & 0 & 8 \\
-        \textbf{EBand2      } & 0 & 1 & 1 & 0 & 5 \\
+        \textbf{EBand       } & 0 & 1 & Fail & 0 & Fail \\
+        \textbf{EBand2      } & 0 & 1 & 1 & 0 & Fail \\
         \bottomrule
     \end{tabular}
     \caption{Maximum re-plan attempts of planners for different test cases}\label{tab:max_re-plan_planner_comp}
@@ -99,27 +99,32 @@ We compare average number of collisions for each planner across all experiments 
     \begin{tabular}{cccccc}\toprule
         \textbf{Planner} & \textbf{Static} & \textbf{Test case} & \textbf{Test case} & \textbf{Static} & \textbf{Test case} \\
                          & \textbf{single room} & \textbf{1} & \textbf{2} & \textbf{double room}       & \textbf{3} \\\toprule
-        \textbf{TEB         } & 0 & 0 & 0 & 0 & 0 \\
+        \textbf{TEB         } & 0 & 0 & 0 & 0 & 0.75 \\
         \textbf{Spline based} & 0 & 0 & 0 & \-- & \-- \\
-        \textbf{DWA         } & 0 & 0 & 0 & 0 & 2.5 \\
+        \textbf{DWA         } & 0 & 0 & 0 & 0 & \-- \\
         \textbf{EBand       } & 0 & 0.25 & 0.5 & 0 & 4 \\
-        \textbf{EBand2      } & 0 & 0 & 0 & 0 & 2 \\
+        \textbf{EBand2      } & 0 & 0 & 0 & 0 & \-- \\
         \bottomrule
     \end{tabular}
     \caption{Average collisions of planners for different test cases}\label{tab:avg_collisions_planner_comp}
 \end{table}
 
 TEB planner is better in this regards without any exceptions. If the global planner can be integrated
-with spline based planner, we believe it performing as good as TEB planner. DWA planner performs better in test 
-case 1 and test case 2, however it failed completely test case 3 experiment 2. Before failing, it 
-collided into 2 obstacles, but left unchecked, it would collide into many more. We also observe that 
-DWA planner collides in corridor when passing between 2 moving obstacles because of its preference to 
-circular motion instead of straight. After TEB planner, 
-EBand2 planner performs better. This is because it indirectly knows the velocity of moving obstacles
-whereas EBand does not. We expected this to result in~\ref{sub:eband2_local_planner}.
+with spline based planner, we believe it might perform as good as TEB planner if not better. DWA planner performs better in test 
+case 1 and test case 2, however it failed completely test case 3. After TEB planner, 
+EBand planner performs better. 
 
 \section{Overall comparison}%
 \label{sec:overall_comparison}
 
 Considering comparison of all 3 criteria, TEB planner is better than other planners. Spline based 
-planner could be better if it was integrable with a global planner. EBand2 planner would be next better.
+planner could be better if it was integrable with a global planner. EBand planner would be next better.
+Depending on the application, more importance could be given to one parameter.
+
+We have designed test case 3 to be very close to a normal corridor in
+an indoor environment where people are walking in different direction and sometimes blocking the entire
+corridor for a few seconds. We observer that the planners do not wait for the corridor to be unblocked
+again. They either return failure or they try to pass between two obstacles and end up colliding.
+Even the best planner in this comparison, TEB, tries to modify its plan again and again and shows an
+oscilatory behaviour in that process.
+
