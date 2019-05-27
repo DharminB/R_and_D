@@ -1,2 +1,20 @@
 papers/*
 Screenshot_from_*.png
+
+# latex compiled files
+*.fls
+*.log
+*.aux
+*.blg
+*.fdb_latexmk
+*.lof
+*.lot
+*.out
+*.synctex.gz
+*.bbl
+*.nav
+*.run.xml
+*.snm
+
+# backup files
+*.bak

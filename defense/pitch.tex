@@ -1,0 +1,357 @@
+\documentclass{beamer}
+\usetheme{Rochester}
+%\usecolortheme{seagull}
+%\usecolortheme{whale}
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+\usepackage{graphicx, booktabs,color} 
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage{subfiles}
+\usepackage{geometry}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{caption, subcaption}
+\usepackage{float}
+\usepackage[style=authortitle,uniquelist=true,backend=bibtex]{biblatex}
+\addbibresource{../myRef.bib}
+\renewcommand*{\bibfont}{\scriptsize}
+
+\title{Robot motion planning in dynamic environment: A comparative study}
+\author{Dharmin Bakaraniya\\Advisors:\\Prof. Erwin Prassler\\Dr. Cesar Lopez}
+\institute{Hochschule Bonn-Rhein-Sieg}
+\date{\today}
+\begin{document}
+
+\begin{frame}
+    \titlepage{}
+\end{frame}
+
+% \begin{frame}
+%     \frametitle{\huge{Overview}}
+%     \tableofcontents
+% \end{frame}
+
+\section{Introduction}
+\begin{frame}
+    \frametitle{\huge{Introduction}}
+    \begin{columns}[t]
+        \column{.50\textwidth}
+        \begin{block}{What is it?}
+            \begin{itemize}
+                \item A mobile robot needs to 
+                    \begin{itemize}
+                        \item Reach goal in \textbf{minimal} time
+                        \item Avoid \textbf{static} \textit{and} \textbf{moving} obstacle
+                        \item Consider \textbf{kinematics} \textit{and} \textbf{dynamic} 
+                            constraints
+                    \end{itemize}
+                \item \textbf{Our aim}: Find out the ``best'' planner
+            \end{itemize}
+        \end{block}
+        \column{.5\textwidth}
+        \begin{figure}[htpb]
+            \centering
+            \includegraphics[width=1.0\textwidth]{intro.png}
+            \caption{Robot motion planning in dynamic environment}
+            \label{fig:intro}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{\huge{Introduction Cont.}}
+    \begin{block}{What are the benefits?}
+        \begin{itemize}
+            \item \textbf{Safer} environment for humans \textit{and} for robots
+            \item \textbf{Cost effective} transportation of goods
+        \end{itemize} 
+    \end{block}
+\end{frame}
+% TODO
+
+\section{State of the art}
+\begin{frame}
+    \frametitle{\huge{State of the art}}
+    \begin{block}{Survey of motion planning in dynamic environment (2018)~\footcite{mohanan2018a}}
+        \begin{itemize}
+            \color{blue} \item Covers 101 research papers published between 1985 and 2016
+            \color{red}  \item Only introduces approaches. Virtually no comparison.
+        \end{itemize}
+    \end{block}
+    \begin{block}{Motion planning algorithm survey (2015)~\footcite{hoy2015algorithms}}
+        \begin{itemize}
+            \color{blue} \item Compares collision avoiding algorithms in detail.
+            \color{red}   \item Does not validate the comparison with common experiments.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{\huge{State of the art cont.}}
+    \begin{block}{Field contribution survey (2009)~\footcite{keshmiri2009overview}}
+        \begin{itemize}
+            \color{blue} \item Introduces 150 papers from 1986 to 2008. Compares contribution in different area of motion planning
+            \color{red}   \item Only states. Does not compare the approaches at all.
+        \end{itemize}
+    \end{block}
+    \begin{block}{Dated comparison (1992)~\footcite{hwang1992gross}}
+        \begin{itemize}
+            \color{blue} \item Surveys papers from 1979 to 1989 for all types of 
+            motion planning.
+        \end{itemize}
+    \end{block}
+\end{frame}
+\section{What is lacking?}
+\begin{frame}
+    \frametitle{\huge{What is lacking?}}
+    \begin{itemize}
+        \item The surveys do not test the approaches.
+        \item The approaches test themselves
+        \begin{itemize}
+            \item on \underline{different} robots
+            \item with \underline{different} kinodynamic constraints\footcite{hoy2015algorithms}
+            \item with \underline{different} assumptions
+            \item in \underline{different} environments 
+            \item to optimize \underline{different} parameters
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\section{Comparison}
+\begin{frame}
+    \frametitle{\huge{Qualitative Comparison}}
+        We qualitatively compare 30+ planners based on
+            \begin{block}{Vehicle type}
+                Holonomic, unicycle or bicycle
+            \end{block}
+            \begin{block}{Restrictions on obstacle}
+                \begin{itemize}
+                    \item Constant or varying direction
+                    \item Constant or varying velocity
+                \end{itemize}
+            \end{block}
+            \begin{block}{Obstacle shape}
+                Circular or polygonal
+            \end{block}
+            \begin{block}{Experiment environment}
+                Simulated and/or real
+            \end{block}
+\end{frame}
+
+\section{Experimental setup}
+\begin{frame}[t]{\huge{Experimental setup}}
+    \begin{block}{Setup}
+        \begin{itemize}
+            \item \textbf{Robot}: KUKA youbot with 2 laser rangefinder
+            \item \textbf{Environment}: Gazebo simulator
+            \item \textbf{Obstacle}: Cylinders with varying velocity and varying direction
+        \end{itemize}    
+    \end{block}
+    \begin{block}{Measured values}
+        \begin{itemize}
+            \item Travel time
+            \item Number of collisions
+            \item Number of re-plans
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}[t]{\huge{Test case 1}}
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.50\linewidth}
+        \centering
+        \includegraphics[width=0.95\textwidth]{../report/images/test_case_1/exp1.png}
+        \caption{t=0.0s}
+    \end{subfigure}%
+    \begin{subfigure}[b]{0.50\linewidth}
+        \centering
+        \includegraphics[width=0.95\textwidth]{../report/images/test_case_1/exp3.png}
+        \caption{t=10.0s}
+    \end{subfigure}%
+\end{figure}
+    \begin{block}{Description}
+        \begin{itemize}
+            \item Room size: 4 meters x 3 meters
+            \item Starting position: \texttt{x=-1.0, y=0.0, theta=0.0} 
+            \item Goal position: \texttt{x=1.0, y=1.0, theta=0.0}
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}[t]{\huge{Test case 2}}
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.50\linewidth}
+            \centering
+            \includegraphics[width=0.90\textwidth]{../report/images/test_case_2/exp1.png}
+            \caption{t=0.0s}
+        \end{subfigure}%
+        \begin{subfigure}[b]{0.50\linewidth}
+            \centering
+            \includegraphics[width=0.90\textwidth]{../report/images/test_case_2/exp2.png}
+            \caption{t=5.0s}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.50\linewidth}
+            \centering
+            \includegraphics[width=0.90\textwidth]{../report/images/test_case_2/exp3.png}
+            \caption{t=10.0s}
+        \end{subfigure}%
+        \begin{subfigure}[b]{0.50\linewidth}
+            \centering
+            \includegraphics[width=0.90\textwidth]{../report/images/test_case_2/exp4.png}
+            \caption{t=15.0s}
+        \end{subfigure}%
+    \end{figure}
+\end{frame}
+
+\begin{frame}[t]{\huge{Test case 3}}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.35\linewidth}
+        \centering
+        \includegraphics[width=0.95\textwidth]{../report/images/test_case_3/exp1.png}
+        \caption{t=0.0s}
+    \end{subfigure}%
+    \begin{subfigure}[b]{0.35\linewidth}
+        \centering
+        \includegraphics[width=0.95\textwidth]{../report/images/test_case_3/mid1.png}
+        \caption{t=5.0s}
+    \end{subfigure}%
+    \begin{subfigure}[b]{0.35\linewidth}
+        \centering
+        \includegraphics[width=0.95\textwidth]{../report/images/test_case_3/exp2.png}
+        \caption{t=7.5s}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.35\linewidth}
+        \centering
+        \includegraphics[width=0.95\textwidth]{../report/images/test_case_3/mid2.png}
+        \caption{t=10.0s}
+    \end{subfigure}%
+    \begin{subfigure}[b]{0.35\linewidth}
+        \centering
+        \includegraphics[width=0.95\textwidth]{../report/images/test_case_3/exp3.png}
+        \caption{t=15.0s}
+    \end{subfigure}%
+    \begin{subfigure}[b]{0.35\linewidth}
+        \centering
+        \includegraphics[width=0.95\textwidth]{../report/images/test_case_3/exp4.png}
+        \caption{t=22.5s}
+    \end{subfigure}
+    \caption{Test case 3 (Total size: 8m x 6m)}\label{fig:double_room}
+\end{figure}
+\end{frame}
+
+\begin{frame}{\huge{Planners}}
+    \begin{itemize}
+        \item Timed elastic band planner (TEB)~\footcite{rosmann2015planning}
+        \item Spline based planner\footcite{mercy2017spline}.
+        \item Elastic band approach (EBand)\footcite{quinlan1993elastic}.
+        \item Eband* (EBand2)
+        \item Dynamic window approach* (DWA)~\footcite{fox1997dynamic}
+    \end{itemize}
+    \tiny{* with obstacle position look ahead of 3 seconds}
+\end{frame}
+
+\section{Results}
+\begin{frame}[t]{\huge{Results (travel time)}}
+\begin{table}[!htpb]
+    \centering
+    \begin{tabular}{p{1.5cm}p{1cm}ccp{1cm}c}\toprule
+        \textbf{Planner} & \textbf{Static} & \textbf{Test case} & \textbf{Test case} & \textbf{Static} & \textbf{Test case} \\
+                         & \textbf{single room} & \textbf{1} & \textbf{2} & \textbf{double room}       & \textbf{3} \\\toprule
+        \textbf{TEB         } & \textbf{5.205}  & 5.972  & 6.083  & \textbf{27.139} & \textbf{35.330} \\\midrule
+        \textbf{Spline based} & 5.421  & \textbf{5.574}  & \textbf{5.819}  & \--    & \--    \\\midrule
+        \textbf{DWA         } & 19.526 & 17.625 & 17.114 & 39.004 & \-- \\\midrule
+        \textbf{EBand       } & 6.270  & 6.570  & 6.240  & 30.862 & 71.968 \\\midrule
+        \textbf{EBand2      } & 6.270  & 6.025  & 6.234  & 30.862 & \-- \\
+        \bottomrule
+    \end{tabular}
+    \caption{Average time of travel for planners for different test cases}\label{tab:avg_time_planner_comp}
+\end{table}
+\end{frame}
+
+\begin{frame}[t]{\huge{Results (re-plans)}}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{p{1.5cm}p{1cm}ccp{1cm}c}\toprule
+        \textbf{Planner} & \textbf{Static} & \textbf{Test case} & \textbf{Test case} & \textbf{Static} & \textbf{Test case} \\
+                         & \textbf{single room} & \textbf{1} & \textbf{2} & \textbf{double room}       & \textbf{3} \\\toprule
+        \textbf{TEB         } & 0 & 0 & 1 & 0 & 4 \\\midrule
+        \textbf{Spline based} & 0 & 0 & 0 & Fail & Fail \\\midrule
+        \textbf{DWA         } & 0 & 0 & 2 & 0 & Fail \\\midrule
+        \textbf{EBand       } & 0 & 1 & Fail & 0 & Fail \\\midrule
+        \textbf{EBand2      } & 0 & 1 & 1 & 0 & Fail \\
+        \bottomrule
+    \end{tabular}
+    \caption{Maximum re-plan attempts of planners for different test cases}\label{tab:max_re-plan_planner_comp}
+\end{table}
+\end{frame}
+
+\begin{frame}[t]{\huge{Results (collisions)}}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{p{1.5cm}p{1cm}ccp{1cm}c}\toprule
+        \textbf{Planner} & \textbf{Static} & \textbf{Test case} & \textbf{Test case} & \textbf{Static} & \textbf{Test case} \\
+                         & \textbf{single room} & \textbf{1} & \textbf{2} & \textbf{double room}       & \textbf{3} \\\toprule
+        \textbf{TEB         } & 0 & 0 & 0 & 0 & 0.75 \\\midrule
+        \textbf{Spline based} & 0 & 0 & 0 & \-- & \-- \\\midrule
+        \textbf{DWA         } & 0 & 0 & 0 & 0 & \-- \\\midrule
+        \textbf{EBand       } & 0 & 0.25 & 0.5 & 0 & 4 \\\midrule
+        \textbf{EBand2      } & 0 & 0 & 0 & 0 & \-- \\
+        \bottomrule
+    \end{tabular}
+    \caption{Average collisions of planners for different test cases}\label{tab:avg_collisions_planner_comp}
+\end{table}
+\end{frame}
+
+\begin{frame}[t]{Results visualised}
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.450\linewidth}
+            \centering
+            \includegraphics[width=0.95\textwidth]{single_room_web_graph.png}
+            \caption{Ranking comparison for test case 1 and 2}
+        \end{subfigure}%
+        \begin{subfigure}[b]{0.450\linewidth}
+            \centering
+            \includegraphics[width=0.95\textwidth]{overall_web_graph.png}
+            \caption{Ranking comparison for all test cases}
+        \end{subfigure}
+    \end{figure}
+    \begin{block}{Verdict}
+        TEB planner performs best for our experiments out of 5 planners.
+    \end{block}
+\end{frame}
+
+\section{Conclusion and future work}
+\begin{frame}{\huge{Conclusion and future work}}
+    \begin{block}{Conclusion}
+        \begin{itemize}
+            \item Qualitative comparison of motion planning approaches for dynamic
+                environments.
+            \item Develop an open source framework to test motion planners
+            \item TEB planner performs ``best'' for given scenario out of 5 planners
+        \end{itemize}
+    \end{block}
+    \begin{block}{Future work}
+        \begin{itemize}
+            \item Test more planners with this framework.
+            \item Test with humans as obstacles for real robots.
+            \item Test with different models of robots.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+    \frametitle{\huge{References}}
+    \tiny{ \printbibliography}
+\end{frame}
+%
+% \bibliographystyle{ieeetr} % Use the plainnat bibliography style
+% \bibliography{../myRef.bib} % Use the bibliography.bib file as the source of references
+%\begin{frame}
+%    \Huge{\centerline{Thank you}}
+%\end{frame}
+\end{document} 
